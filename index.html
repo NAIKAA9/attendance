@@ -406,6 +406,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
   <!-- CHECK-IN -->
   <div class="section active" id="tab-checkin">
+    <!-- Motivation Widget -->
+    <div class="card" style="background: var(--gray-bg); border-left: 4px solid var(--green-mid);">
+      <div class="card-title" style="margin-bottom: 6px;">💡 Daily Motivation</div>
+      <p id="quoteText" style="font-style: italic; font-size: 13px; color: var(--text2); line-height: 1.5;"></p>
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 6px;">
+        <button onclick="nextQuote()" style="background: transparent; border: none; color: var(--green-mid); cursor: pointer; font-size: 11px; font-weight: 600; padding: 0; outline: none;">🔄 Refresh</button>
+        <span id="quoteAuthor" style="font-size: 11px; color: var(--text3); font-weight: 600;"></span>
+      </div>
+    </div>
+
     <div class="card">
       <div class="card-title">Today's attendance — <span id="todayLabel"></span></div>
       <div class="row">
@@ -1013,7 +1023,24 @@ function initToday(){
 }
 
 function renderAll(){renderStats();renderLog();renderCal()}
-setNav();initToday();renderAll();
+
+const QUOTES = [
+  { text: "Consistency is what transforms average into excellence.", author: "Dev Wisdom" },
+  { text: "First, solve the problem. Then, write the code.", author: "John Johnson" },
+  { text: "Java is to JavaScript what car is to Carpet.", author: "Chris Heilmann" },
+  { text: "Great backend developers don't just write code; they build foundations.", author: "Code Master" },
+  { text: "Every line of code you write today is a step closer to your dream career.", author: "Career Guide" },
+  { text: "Coding is not just about syntax; it's about solving real-world problems.", author: "Dev Mindset" },
+  { text: "An hour of practice today is worth ten hours of reading tomorrow.", author: "Study Rule" },
+  { text: "Simplicity is the soul of efficiency.", author: "Austin Freeman" }
+];
+function nextQuote(){
+  const q = QUOTES[Math.floor(Math.random()*QUOTES.length)];
+  document.getElementById('quoteText').textContent = `"${q.text}"`;
+  document.getElementById('quoteAuthor').textContent = `— ${q.author}`;
+}
+
+setNav();initToday();renderAll();nextQuote();
 </script>
 </body>
 </html>
