@@ -215,7 +215,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 /* Print report */
 @media print{
   body{background:#fff;color:#000;font-size:12px}
-  .tabs,.tab,.nav,.stats,.prog-wrap,.prog-labels,.banner,.report-actions{display:none!important}
+  .tabs,.tab,.nav,.stats,.prog-wrap,.prog-labels,.banner,.report-actions, .dev-card{display:none!important}
   .section{display:block!important}
   #tab-checkin,#tab-log,#tab-calendar,#tab-reminders{display:none!important}
   #tab-report{display:block!important}
@@ -237,7 +237,143 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   .report-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .row-controls{flex-direction:column;align-items:flex-end;gap:6px}
 }
+
+/* Developer Profile Card styling */
+.dev-card {
+  margin-top: 3rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r16);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+.dev-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+.dev-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.dev-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--green-mid);
+  box-shadow: 0 0 10px rgba(59, 109, 17, 0.2);
+}
+.dev-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.dev-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.dev-title {
+  font-size: 12px;
+  color: var(--green-mid);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.dev-loc {
+  font-size: 11px;
+  color: var(--text3);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.dev-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-top: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+  padding: 1rem 0;
+}
+.dev-skill {
+  font-size: 11px;
+  font-weight: 500;
+  background: var(--gray-bg);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  padding: 4px 10px;
+  border-radius: 20px;
+  transition: background 0.2s, transform 0.2s;
+}
+.dev-skill:hover {
+  background: var(--green-bg);
+  color: var(--green-mid);
+  transform: scale(1.03);
+}
+.dev-links {
+  display: flex;
+  gap: 10px;
+}
+.dev-link-btn {
+  flex: 1;
+  text-align: center;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--r8);
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s, background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.dev-link-btn:hover {
+  transform: translateY(-1px);
+}
+.dev-link-btn.github {
+  background: var(--text);
+  color: var(--card);
+  border: 1px solid var(--border);
+}
+.dev-link-btn.github:hover {
+  opacity: 0.9;
+}
+.dev-link-btn.linkedin {
+  background: #0A66C2;
+  color: #fff;
+}
+.dev-link-btn.linkedin:hover {
+  background: #004182;
+}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Eslavath Narasimha Naik",
+  "alternateName": ["eslavathnarasimhanaik", "Narasimha Naik"],
+  "url": "https://github.com/eslavathnarasimhanaik",
+  "sameAs": [
+    "https://github.com/eslavathnarasimhanaik",
+    "https://www.linkedin.com/in/narasimhanaik591"
+  ],
+  "jobTitle": "Software Developer",
+  "knowsAbout": ["Java Backend Development", "Spring Boot", "React.js", "Web Design", "Database Management"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Kothagudem",
+    "addressRegion": "Telangana",
+    "addressCountry": "India"
+  }
+}
+</script>
 </head>
 <body>
 <div class="app">
@@ -451,6 +587,35 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <div class="card-title">Export</div>
       <button class="rem-btn" onclick="exportCSV()">⬇ Download full log (CSV)</button>
       <button class="rem-btn" style="margin-top:8px" onclick="exportReportCSV()">⬇ Download attendance report (CSV)</button>
+    </div>
+  </div>
+
+  <!-- Developer Profile Card (SEO/GEO/AEO) -->
+  <div class="dev-card">
+    <div class="dev-header">
+      <img class="dev-avatar" src="https://github.com/eslavathnarasimhanaik.png" alt="Eslavath Narasimha Naik" onerror="this.src='https://ui-avatars.com/api/?name=Eslavath+Narasimha+Naik&background=3B6D11&color=fff'">
+      <div class="dev-info">
+        <div class="dev-name">Eslavath Narasimha Naik</div>
+        <div class="dev-title">Software Developer</div>
+        <div class="dev-loc">📍 Kothagudem, Telangana, India</div>
+      </div>
+    </div>
+    <div class="dev-skills">
+      <span class="dev-skill">Java Backend Development</span>
+      <span class="dev-skill">Spring Boot</span>
+      <span class="dev-skill">React.js</span>
+      <span class="dev-skill">Web Design</span>
+      <span class="dev-skill">Database Management</span>
+    </div>
+    <div class="dev-links">
+      <a href="https://github.com/eslavathnarasimhanaik" target="_blank" rel="noopener noreferrer" class="dev-link-btn github">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/narasimhanaik591" target="_blank" rel="noopener noreferrer" class="dev-link-btn linkedin">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        LinkedIn
+      </a>
     </div>
   </div>
 </div>
