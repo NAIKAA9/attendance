@@ -360,6 +360,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .dev-link-btn.youtube:hover {
   background: #CC0000;
 }
+.dev-link-btn.instagram {
+  background: #E1306C;
+  color: #fff;
+}
+.dev-link-btn.instagram:hover {
+  background: #B81B53;
+}
 
 /* Developer Profile Sync Modal CSS */
 @keyframes pulse-green {
@@ -829,8 +836,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         GitHub
       </a>
       <a href="https://www.youtube.com/@narasimhanaikai" target="_blank" rel="noopener noreferrer" class="dev-link-btn youtube" id="cardYoutubeLink" title="ESLAVATH NARASIMHA NAIK - YouTube Channel">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.163c-.272-1.016-1.07-1.815-2.085-2.087C19.579 3.5 12 3.5 12 3.5s-7.579 0-9.413.576c-1.015.272-1.813 1.071-2.085 2.087C0 8.002 0 12 0 12s0 3.998.502 5.837c.272 1.016 1.07 1.815 2.085 2.087C4.421 20.5 12 20.5 12 20.5s7.579 0 9.413-.576c1.015-.272 1.813-1.071 2.085-2.087C24 15.998 24 12 24 12s0-3.998-.502-5.837zM9.545 15.568V5.73l8.455 4.919-8.455-4.919z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.163c-.272-1.016-1.07-1.815-2.085-2.087C19.579 3.5 12 3.5 12 3.5s-7.579 0-9.413.576c-1.015.272-1.813 1.071-2.085 2.087C0 8.002 0 12 0 12s0 3.998.502 5.837c.272 1.016 1.07 1.815 2.085 2.087C4.421 20.5 12 20.5 12 20.5s7.579 0 9.413-.576c1.015-.272-1.813-1.071 2.085-2.087C24 15.998 24 12 24 12s0-3.998-.502-5.837zM9.545 15.568V5.73l8.455 4.919-8.455-4.919z"/></svg>
         YouTube
+      </a>
+      <a href="https://www.instagram.com/narasimhanaik.ai" target="_blank" rel="noopener noreferrer" class="dev-link-btn instagram" id="cardInstagramLink" title="Eslavath Narasimha Naik - Instagram Profile">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram
       </a>
     </div>
   </div>
@@ -906,6 +917,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="prof-form-group">
       <label for="profYoutube">YouTube Channel URL</label>
       <input type="text" id="profYoutube" placeholder="https://www.youtube.com/@narasimhanaikai">
+    </div>
+    <div class="prof-form-group">
+      <label for="profInstagram">Instagram Profile URL</label>
+      <input type="text" id="profInstagram" placeholder="https://www.instagram.com/narasimhanaik.ai">
     </div>
     
     <div class="prof-btn-row">
@@ -1324,7 +1339,8 @@ const DEFAULT_PROFILE = {
   bio: "Actively seeking Software Developer & Java Backend roles. Experienced in building scalable REST APIs, MVC applications, relational/NoSQL databases, and modern frontends. Click below to review my code repository contributions or connect on LinkedIn to discuss how I can deliver value to your engineering team!",
   linkedin: "https://www.linkedin.com/in/eslavathnarasimhanaik",
   github: "https://github.com/eslavathnarasimhanaik",
-  youtube: "https://www.youtube.com/@narasimhanaikai"
+  youtube: "https://www.youtube.com/@narasimhanaikai",
+  instagram: "https://www.instagram.com/narasimhanaik.ai"
 };
 
 let profileData = loadProfile();
@@ -1360,6 +1376,7 @@ function updateProfileDOM() {
   document.getElementById('cardLinkedinLink').setAttribute('href', profileData.linkedin || DEFAULT_PROFILE.linkedin);
   document.getElementById('cardGithubLink').setAttribute('href', profileData.github || DEFAULT_PROFILE.github);
   document.getElementById('cardYoutubeLink').setAttribute('href', profileData.youtube || DEFAULT_PROFILE.youtube);
+  document.getElementById('cardInstagramLink').setAttribute('href', profileData.instagram || DEFAULT_PROFILE.instagram);
   
   // Update avatar fallback onerror
   const avatar = document.getElementById('cardAvatar');
@@ -1386,7 +1403,8 @@ function updateJSONLD() {
     "sameAs": [
       profileData.github || DEFAULT_PROFILE.github,
       profileData.linkedin || DEFAULT_PROFILE.linkedin,
-      profileData.youtube || DEFAULT_PROFILE.youtube
+      profileData.youtube || DEFAULT_PROFILE.youtube,
+      profileData.instagram || DEFAULT_PROFILE.instagram
     ],
     "jobTitle": profileData.title,
     "knowsAbout": profileData.skills,
@@ -1408,6 +1426,7 @@ function openProfileModal() {
   document.getElementById('profBio').value = profileData.bio;
   document.getElementById('profSkills').value = profileData.skills.join(', ');
   document.getElementById('profYoutube').value = profileData.youtube || DEFAULT_PROFILE.youtube;
+  document.getElementById('profInstagram').value = profileData.instagram || DEFAULT_PROFILE.instagram;
   
   // Reset sync UI
   document.getElementById('syncProgress').style.display = 'none';
@@ -1431,7 +1450,8 @@ function saveProfileData() {
     skills: skillsArr.length ? skillsArr : DEFAULT_PROFILE.skills,
     linkedin: profileData.linkedin || DEFAULT_PROFILE.linkedin,
     github: profileData.github || DEFAULT_PROFILE.github,
-    youtube: document.getElementById('profYoutube').value.trim() || DEFAULT_PROFILE.youtube
+    youtube: document.getElementById('profYoutube').value.trim() || DEFAULT_PROFILE.youtube,
+    instagram: document.getElementById('profInstagram').value.trim() || DEFAULT_PROFILE.instagram
   };
   saveProfile(updated);
   closeProfileModal();
@@ -1579,6 +1599,14 @@ function parseLinkedInText() {
     document.getElementById('profYoutube').value = ytUrl;
   } else {
     document.getElementById('profYoutube').value = profileData.youtube || DEFAULT_PROFILE.youtube;
+  }
+  
+  const igMatch = text.match(/instagram\.com\/([A-Za-z0-9_.-]+)/i);
+  let igUrl = igMatch ? "https://www." + igMatch[0] : "";
+  if (igUrl) {
+    document.getElementById('profInstagram').value = igUrl;
+  } else {
+    document.getElementById('profInstagram').value = profileData.instagram || DEFAULT_PROFILE.instagram;
   }
   
   alert("✅ Smart parser finished! Extracted data has been filled in. Review and click 'Save Profile' to finalize.");
