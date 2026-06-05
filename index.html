@@ -390,6 +390,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .dev-link-btn.x-twitter:hover {
   background: #222;
 }
+.dev-link-btn.facebook {
+  background: #1877F2;
+  color: #fff;
+}
+.dev-link-btn.facebook:hover {
+  background: #145DBF;
+}
 
 /* Developer Profile Sync Modal CSS */
 @keyframes pulse-green {
@@ -596,7 +603,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       "https://github.com/eslavathnarasimhanaik",
       "https://www.youtube.com/@narasimhanaikai",
       "https://www.instagram.com/narasimhanaik.ai",
-      "https://x.com/eslavathnarasimhanaik"
+      "https://x.com/eslavathnarasimhanaik",
+      "https://www.facebook.com/share/1CetPmAHFV/"
     ]
   },
   "description": "An interactive 90-day consistency tracker for study schedules, built by Eslavath Narasimha Naik (eslavathnarasimhanaik)."
@@ -873,6 +881,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         X
       </a>
+      <a href="https://www.facebook.com/share/1CetPmAHFV/" target="_blank" rel="noopener noreferrer" class="dev-link-btn facebook" id="cardFacebookLink" title="Eslavath Narasimha Naik - Facebook Profile">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
     </div>
   </div>
 </div>
@@ -955,6 +967,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="prof-form-group">
       <label for="profTwitter">X (Twitter) Profile URL</label>
       <input type="text" id="profTwitter" placeholder="https://x.com/eslavathnarasimhanaik">
+    </div>
+    <div class="prof-form-group">
+      <label for="profFacebook">Facebook Profile URL</label>
+      <input type="text" id="profFacebook" placeholder="https://www.facebook.com/share/1CetPmAHFV/">
     </div>
     
     <div class="prof-btn-row">
@@ -1375,7 +1391,8 @@ const DEFAULT_PROFILE = {
   github: "https://github.com/eslavathnarasimhanaik",
   youtube: "https://www.youtube.com/@narasimhanaikai",
   instagram: "https://www.instagram.com/narasimhanaik.ai",
-  twitter: "https://x.com/eslavathnarasimhanaik"
+  twitter: "https://x.com/eslavathnarasimhanaik",
+  facebook: "https://www.facebook.com/share/1CetPmAHFV/"
 };
 
 let profileData = loadProfile();
@@ -1413,6 +1430,7 @@ function updateProfileDOM() {
   document.getElementById('cardYoutubeLink').setAttribute('href', profileData.youtube || DEFAULT_PROFILE.youtube);
   document.getElementById('cardInstagramLink').setAttribute('href', profileData.instagram || DEFAULT_PROFILE.instagram);
   document.getElementById('cardTwitterLink').setAttribute('href', profileData.twitter || DEFAULT_PROFILE.twitter);
+  document.getElementById('cardFacebookLink').setAttribute('href', profileData.facebook || DEFAULT_PROFILE.facebook);
   
   // Update avatar fallback onerror
   const avatar = document.getElementById('cardAvatar');
@@ -1446,7 +1464,8 @@ function updateJSONLD() {
         profileData.linkedin || DEFAULT_PROFILE.linkedin,
         profileData.youtube || DEFAULT_PROFILE.youtube,
         profileData.instagram || DEFAULT_PROFILE.instagram,
-        profileData.twitter || DEFAULT_PROFILE.twitter
+        profileData.twitter || DEFAULT_PROFILE.twitter,
+        profileData.facebook || DEFAULT_PROFILE.facebook
       ],
       "jobTitle": profileData.title,
       "knowsAbout": profileData.skills
@@ -1466,6 +1485,7 @@ function openProfileModal() {
   document.getElementById('profYoutube').value = profileData.youtube || DEFAULT_PROFILE.youtube;
   document.getElementById('profInstagram').value = profileData.instagram || DEFAULT_PROFILE.instagram;
   document.getElementById('profTwitter').value = profileData.twitter || DEFAULT_PROFILE.twitter;
+  document.getElementById('profFacebook').value = profileData.facebook || DEFAULT_PROFILE.facebook;
   
   // Reset sync UI
   document.getElementById('syncProgress').style.display = 'none';
@@ -1491,7 +1511,8 @@ function saveProfileData() {
     github: profileData.github || DEFAULT_PROFILE.github,
     youtube: document.getElementById('profYoutube').value.trim() || DEFAULT_PROFILE.youtube,
     instagram: document.getElementById('profInstagram').value.trim() || DEFAULT_PROFILE.instagram,
-    twitter: document.getElementById('profTwitter').value.trim() || DEFAULT_PROFILE.twitter
+    twitter: document.getElementById('profTwitter').value.trim() || DEFAULT_PROFILE.twitter,
+    facebook: document.getElementById('profFacebook').value.trim() || DEFAULT_PROFILE.facebook
   };
   saveProfile(updated);
   closeProfileModal();
@@ -1655,6 +1676,14 @@ function parseLinkedInText() {
     document.getElementById('profTwitter').value = xUrl;
   } else {
     document.getElementById('profTwitter').value = profileData.twitter || DEFAULT_PROFILE.twitter;
+  }
+  
+  const fbMatch = text.match(/facebook\.com\/([A-Za-z0-9_.-/]+)/i);
+  let fbUrl = fbMatch ? "https://www." + fbMatch[0] : "";
+  if (fbUrl) {
+    document.getElementById('profFacebook').value = fbUrl;
+  } else {
+    document.getElementById('profFacebook').value = profileData.facebook || DEFAULT_PROFILE.facebook;
   }
   
   alert("✅ Smart parser finished! Extracted data has been filled in. Review and click 'Save Profile' to finalize.");
