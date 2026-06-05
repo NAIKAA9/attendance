@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="robots" content="noindex, nofollow" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NAIK – 90-Day Study Tracker | Eslavath Narasimha Naik</title>
@@ -575,24 +574,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <script type="application/ld+json" id="personSchema">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Eslavath Narasimha Naik",
-  "alternateName": ["eslavathnarasimhanaik", "Narasimha Naik"],
-  "url": "https://github.com/eslavathnarasimhanaik",
-  "sameAs": [
-    "https://www.linkedin.com/in/eslavathnarasimhanaik",
-    "https://github.com/eslavathnarasimhanaik",
-    "https://www.youtube.com/@narasimhanaikai",
-    "https://www.instagram.com/narasimhanaik.ai"
-  ],
-  "jobTitle": "Software Developer",
-  "knowsAbout": ["Java Backend Development", "Spring Boot", "React.js", "Web Design", "Database Management"],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Kothagudem",
-    "addressRegion": "Telangana",
-    "addressCountry": "India"
-  }
+  "@type": "WebApplication",
+  "name": "NAIK Study Tracker",
+  "url": "https://eslavathnarasimhanaik.github.io/attendance/",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5.",
+  "author": {
+    "@type": "Person",
+    "name": "Eslavath Narasimha Naik",
+    "url": "https://eslavathnarasimhanaik.github.io",
+    "sameAs": [
+      "https://www.linkedin.com/in/eslavathnarasimhanaik",
+      "https://github.com/eslavathnarasimhanaik",
+      "https://www.youtube.com/@narasimhanaikai",
+      "https://www.instagram.com/narasimhanaik.ai"
+    ]
+  },
+  "description": "An interactive 90-day consistency tracker for study schedules, built by Eslavath Narasimha Naik (eslavathnarasimhanaik)."
 }
 </script>
 </head>
@@ -1415,24 +1414,25 @@ function updateJSONLD() {
   }
   const schemaObj = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": profileData.name,
-    "alternateName": ["eslavathnarasimhanaik", profileData.name.split(' ').pop()],
-    "url": profileData.github || DEFAULT_PROFILE.github,
-    "sameAs": [
-      profileData.github || DEFAULT_PROFILE.github,
-      profileData.linkedin || DEFAULT_PROFILE.linkedin,
-      profileData.youtube || DEFAULT_PROFILE.youtube,
-      profileData.instagram || DEFAULT_PROFILE.instagram
-    ],
-    "jobTitle": profileData.title,
-    "knowsAbout": profileData.skills,
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": profileData.location.replace('📍', '').split(',')[0].trim(),
-      "addressRegion": "Telangana",
-      "addressCountry": "India"
-    }
+    "@type": "WebApplication",
+    "name": "NAIK Study Tracker",
+    "url": "https://eslavathnarasimhanaik.github.io/attendance/",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "author": {
+      "@type": "Person",
+      "name": profileData.name,
+      "url": "https://eslavathnarasimhanaik.github.io",
+      "sameAs": [
+        profileData.github || DEFAULT_PROFILE.github,
+        profileData.linkedin || DEFAULT_PROFILE.linkedin,
+        profileData.youtube || DEFAULT_PROFILE.youtube,
+        profileData.instagram || DEFAULT_PROFILE.instagram
+      ],
+      "jobTitle": profileData.title,
+      "knowsAbout": profileData.skills
+    },
+    "description": profileData.bio
   };
   script.textContent = JSON.stringify(schemaObj, null, 2);
 }
