@@ -353,6 +353,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .dev-link-btn.linkedin:hover {
   background: #004182;
 }
+.dev-link-btn.youtube {
+  background: #FF0000;
+  color: #fff;
+}
+.dev-link-btn.youtube:hover {
+  background: #CC0000;
+}
 
 /* Developer Profile Sync Modal CSS */
 @keyframes pulse-green {
@@ -821,6 +828,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
         LinkedIn
       </a>
+      <a href="https://www.youtube.com/@narasimhanaikai" target="_blank" rel="noopener noreferrer" class="dev-link-btn youtube" id="cardYoutubeLink">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.163c-.272-1.016-1.07-1.815-2.085-2.087C19.579 3.5 12 3.5 12 3.5s-7.579 0-9.413.576c-1.015.272-1.813 1.071-2.085 2.087C0 8.002 0 12 0 12s0 3.998.502 5.837c.272 1.016 1.07 1.815 2.085 2.087C4.421 20.5 12 20.5 12 20.5s7.579 0 9.413-.576c1.015-.272 1.813-1.071 2.085-2.087C24 15.998 24 12 24 12s0-3.998-.502-5.837zM9.545 15.568V5.73l8.455 4.919-8.455-4.919z"/></svg>
+        YouTube
+      </a>
     </div>
   </div>
 </div>
@@ -891,6 +902,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="prof-form-group">
       <label for="profSkills">Skills (comma-separated)</label>
       <input type="text" id="profSkills" placeholder="Java, Spring Boot, React.js, Web Design">
+    </div>
+    <div class="prof-form-group">
+      <label for="profYoutube">YouTube Channel URL</label>
+      <input type="text" id="profYoutube" placeholder="https://www.youtube.com/@narasimhanaikai">
     </div>
     
     <div class="prof-btn-row">
@@ -1308,7 +1323,8 @@ const DEFAULT_PROFILE = {
   skills: ["Java Backend Development", "Spring Boot", "React.js", "Web Design", "Database Management"],
   bio: "Actively seeking Software Developer & Java Backend roles. Experienced in building scalable REST APIs, MVC applications, relational/NoSQL databases, and modern frontends. Click below to review my code repository contributions or connect on LinkedIn to discuss how I can deliver value to your engineering team!",
   linkedin: "https://www.linkedin.com/in/eslavathnarasimhanaik",
-  github: "https://github.com/eslavathnarasimhanaik"
+  github: "https://github.com/eslavathnarasimhanaik",
+  youtube: "https://www.youtube.com/@narasimhanaikai"
 };
 
 let profileData = loadProfile();
@@ -1343,6 +1359,7 @@ function updateProfileDOM() {
   // Update links
   document.getElementById('cardLinkedinLink').setAttribute('href', profileData.linkedin || DEFAULT_PROFILE.linkedin);
   document.getElementById('cardGithubLink').setAttribute('href', profileData.github || DEFAULT_PROFILE.github);
+  document.getElementById('cardYoutubeLink').setAttribute('href', profileData.youtube || DEFAULT_PROFILE.youtube);
   
   // Update avatar fallback onerror
   const avatar = document.getElementById('cardAvatar');
@@ -1368,7 +1385,8 @@ function updateJSONLD() {
     "url": profileData.github || DEFAULT_PROFILE.github,
     "sameAs": [
       profileData.github || DEFAULT_PROFILE.github,
-      profileData.linkedin || DEFAULT_PROFILE.linkedin
+      profileData.linkedin || DEFAULT_PROFILE.linkedin,
+      profileData.youtube || DEFAULT_PROFILE.youtube
     ],
     "jobTitle": profileData.title,
     "knowsAbout": profileData.skills,
@@ -1389,6 +1407,7 @@ function openProfileModal() {
   document.getElementById('profLoc').value = profileData.location;
   document.getElementById('profBio').value = profileData.bio;
   document.getElementById('profSkills').value = profileData.skills.join(', ');
+  document.getElementById('profYoutube').value = profileData.youtube || DEFAULT_PROFILE.youtube;
   
   // Reset sync UI
   document.getElementById('syncProgress').style.display = 'none';
@@ -1411,7 +1430,8 @@ function saveProfileData() {
     bio: document.getElementById('profBio').value.trim() || DEFAULT_PROFILE.bio,
     skills: skillsArr.length ? skillsArr : DEFAULT_PROFILE.skills,
     linkedin: profileData.linkedin || DEFAULT_PROFILE.linkedin,
-    github: profileData.github || DEFAULT_PROFILE.github
+    github: profileData.github || DEFAULT_PROFILE.github,
+    youtube: document.getElementById('profYoutube').value.trim() || DEFAULT_PROFILE.youtube
   };
   saveProfile(updated);
   closeProfileModal();
@@ -1552,6 +1572,14 @@ function parseLinkedInText() {
   document.getElementById('profLoc').value = location;
   document.getElementById('profBio').value = bio;
   document.getElementById('profSkills').value = skills.join(', ');
+  
+  const ytMatch = text.match(/youtube\.com\/@[A-Za-z0-9_-]+/i);
+  let ytUrl = ytMatch ? "https://www." + ytMatch[0] : "";
+  if (ytUrl) {
+    document.getElementById('profYoutube').value = ytUrl;
+  } else {
+    document.getElementById('profYoutube').value = profileData.youtube || DEFAULT_PROFILE.youtube;
+  }
   
   alert("✅ Smart parser finished! Extracted data has been filled in. Review and click 'Save Profile' to finalize.");
 }
