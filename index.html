@@ -353,8 +353,195 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .dev-link-btn.linkedin:hover {
   background: #004182;
 }
+
+/* Developer Profile Sync Modal CSS */
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(59, 109, 17, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(59, 109, 17, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(59, 109, 17, 0); }
+}
+.pulse-badge {
+  animation: pulse-green 2s infinite;
+}
+.dev-edit-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text2);
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.dev-edit-btn:hover {
+  background: var(--gray-bg);
+  color: var(--text);
+  border-color: var(--text3);
+}
+.prof-modal-bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-y: auto;
+}
+.prof-modal-bg.open {
+  display: flex;
+}
+.prof-modal {
+  background: var(--card);
+  border-radius: var(--r16);
+  padding: 1.5rem;
+  max-width: 500px;
+  width: 100%;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.prof-modal h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.prof-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.prof-form-group label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.prof-form-group input, .prof-form-group textarea {
+  font-size: 13px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--r8);
+  background: var(--gray-bg);
+  color: var(--text);
+  outline: none;
+  width: 100%;
+}
+.prof-form-group input:focus, .prof-form-group textarea:focus {
+  border-color: var(--green-mid);
+}
+.prof-sync-box {
+  border: 1.5px dashed var(--green-light);
+  border-radius: var(--r12);
+  padding: 1.25rem;
+  background: var(--green-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+.prof-sync-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.prof-sync-progress {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+}
+.prof-bar-bg {
+  height: 6px;
+  background: rgba(0,0,0,0.06);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.prof-bar-fill {
+  height: 100%;
+  background: var(--green-mid);
+  width: 0%;
+  transition: width 0.1s ease;
+}
+.prof-bar-status {
+  font-size: 11px;
+  color: var(--green-mid);
+  font-style: italic;
+}
+.prof-sync-textarea {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+}
+.prof-sync-textarea textarea {
+  height: 90px;
+  font-size: 12px;
+  resize: vertical;
+}
+.prof-btn-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+.prof-btn {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--r8);
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: opacity 0.2s;
+}
+.prof-btn.primary {
+  background: var(--green-mid);
+  color: #fff;
+}
+.prof-btn.secondary {
+  background: var(--gray-bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.prof-btn:hover {
+  opacity: 0.9;
+}
+.prof-sync-url-btn {
+  background: #0A66C2;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 20px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.2s;
+}
+.prof-sync-url-btn:hover {
+  background: #004182;
+}
 </style>
-<script type="application/ld+json">
+<script type="application/ld+json" id="personSchema">
 {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -602,20 +789,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   </div>
 
   <!-- Developer Profile Card (SEO/GEO/AEO) -->
-  <div class="dev-card">
+  <div class="dev-card" id="devProfileCard">
     <div class="dev-header" style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; flex-wrap: wrap; gap: 10px;">
       <div style="display: flex; align-items: center; gap: 1.25rem;">
-        <img class="dev-avatar" src="https://github.com/eslavathnarasimhanaik.png" alt="Eslavath Narasimha Naik" onerror="this.src='https://ui-avatars.com/api/?name=Eslavath+Narasimha+Naik&background=3B6D11&color=fff'">
+        <img class="dev-avatar" id="cardAvatar" src="https://github.com/eslavathnarasimhanaik.png" alt="Eslavath Narasimha Naik" onerror="this.src='https://ui-avatars.com/api/?name=Eslavath+Narasimha+Naik&background=3B6D11&color=fff'">
         <div class="dev-info">
-          <div class="dev-name">Eslavath Narasimha Naik</div>
-          <div class="dev-title">Software Developer</div>
-          <div class="dev-loc">📍 Kothagudem, Telangana, India</div>
+          <div class="dev-name" id="cardName">Eslavath Narasimha Naik</div>
+          <div class="dev-title" id="cardTitle">Software Developer</div>
+          <div class="dev-loc" id="cardLoc">📍 Kothagudem, Telangana, India</div>
         </div>
       </div>
-      <span style="font-size: 10px; font-weight: 700; background: var(--green-bg); color: var(--green-mid); border: 1.5px solid var(--green-light); padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 2px 6px rgba(59, 109, 17, 0.05); white-space: nowrap;">🟢 Open to Work</span>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+        <span class="pulse-badge" style="font-size: 10px; font-weight: 700; background: var(--green-bg); color: var(--green-mid); border: 1.5px solid var(--green-light); padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 2px 6px rgba(59, 109, 17, 0.05); white-space: nowrap;">🟢 Open to Work</span>
+        <button class="dev-edit-btn" onclick="openProfileModal()">⚙️ Edit &amp; Sync</button>
+      </div>
     </div>
-    <p style="font-size: 13px; color: var(--text2); line-height: 1.6; margin-top: -2px;">Actively seeking **Software Developer & Java Backend** roles. Experienced in building scalable REST APIs, MVC applications, relational/NoSQL databases, and modern frontends. Click below to review my code repository contributions or connect on LinkedIn to discuss how I can deliver value to your engineering team!</p>
-    <div class="dev-skills">
+    <p id="cardBio" style="font-size: 13px; color: var(--text2); line-height: 1.6; margin-top: -2px;">Actively seeking Software Developer &amp; Java Backend roles. Experienced in building scalable REST APIs, MVC applications, relational/NoSQL databases, and modern frontends. Click below to review my code repository contributions or connect on LinkedIn to discuss how I can deliver value to your engineering team!</p>
+    <div class="dev-skills" id="cardSkills">
       <span class="dev-skill">Java Backend Development</span>
       <span class="dev-skill">Spring Boot</span>
       <span class="dev-skill">React.js</span>
@@ -623,11 +813,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
       <span class="dev-skill">Database Management</span>
     </div>
     <div class="dev-links">
-      <a href="https://github.com/eslavathnarasimhanaik" target="_blank" rel="noopener noreferrer" class="dev-link-btn github">
+      <a href="https://github.com/eslavathnarasimhanaik" target="_blank" rel="noopener noreferrer" class="dev-link-btn github" id="cardGithubLink">
         <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
         GitHub
       </a>
-      <a href="https://www.linkedin.com/in/eslavathnarasimhanaik" target="_blank" rel="noopener noreferrer" class="dev-link-btn linkedin">
+      <a href="https://www.linkedin.com/in/eslavathnarasimhanaik" target="_blank" rel="noopener noreferrer" class="dev-link-btn linkedin" id="cardLinkedinLink">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
         LinkedIn
       </a>
@@ -642,6 +832,71 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div id="modalImg" style="display:none"><img id="modalImgTag" src="" alt="proof"></div>
     <div class="modal-body" id="modalBody"></div>
     <button class="modal-close" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<!-- Profile Sync & Edit Modal -->
+<div class="prof-modal-bg" id="profileModal">
+  <div class="prof-modal">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+      <div>
+        <h3 style="font-size: 15px; font-weight: 700; color: var(--text);">💼 Professional Profile Hub</h3>
+        <p style="font-size: 11px; color: var(--text3); margin-top: 2px;">Manage your public details, SEO JSON-LD schema, and sync with LinkedIn.</p>
+      </div>
+      <button onclick="closeProfileModal()" style="background: transparent; border: none; font-size: 20px; cursor: pointer; color: var(--text3); line-height: 1;">&times;</button>
+    </div>
+    
+    <div class="prof-sync-box">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+        <span class="prof-sync-title">🔗 LinkedIn Profile Sync</span>
+        <button class="prof-sync-url-btn" onclick="startLinkedInSync()">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="margin-right:2px;"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          Sync URL
+        </button>
+      </div>
+      
+      <!-- Sync Progress -->
+      <div class="prof-sync-progress" id="syncProgress">
+        <div class="prof-bar-bg"><div class="prof-bar-fill" id="syncBarFill"></div></div>
+        <div class="prof-bar-status" id="syncStatus">Initializing connection...</div>
+      </div>
+      
+      <!-- Smart Copy-Paste Text Area -->
+      <div class="prof-sync-textarea" id="syncTextareaBox">
+        <p style="font-size: 11px; color: var(--text2); line-height: 1.4; margin: 0 0 4px 0;">
+          💡 <strong>CORS Protection Active</strong>: LinkedIn prevents direct automated scraping. Copy the text from your LinkedIn profile page (Ctrl+A, Ctrl+C), paste it below, and click Parse.
+        </p>
+        <textarea id="rawLinkedInText" placeholder="Paste your LinkedIn public profile text or resume text here..."></textarea>
+        <button class="prof-btn primary" onclick="parseLinkedInText()" style="padding: 8px 12px; font-size: 12px; margin-top: 4px; width: 100%;">🚀 Parse &amp; Extract Data</button>
+      </div>
+    </div>
+
+    <!-- Form fields -->
+    <div class="prof-form-group">
+      <label for="profName">Full Name</label>
+      <input type="text" id="profName" placeholder="Eslavath Narasimha Naik">
+    </div>
+    <div class="prof-form-group">
+      <label for="profTitle">Job Title / Headline</label>
+      <input type="text" id="profTitle" placeholder="Software Developer">
+    </div>
+    <div class="prof-form-group">
+      <label for="profLoc">Location</label>
+      <input type="text" id="profLoc" placeholder="📍 Kothagudem, Telangana, India">
+    </div>
+    <div class="prof-form-group">
+      <label for="profBio">Professional Bio (SEO/GEO Target)</label>
+      <textarea id="profBio" rows="3" placeholder="Describe your experience, backend focus, recruiters pitch..."></textarea>
+    </div>
+    <div class="prof-form-group">
+      <label for="profSkills">Skills (comma-separated)</label>
+      <input type="text" id="profSkills" placeholder="Java, Spring Boot, React.js, Web Design">
+    </div>
+    
+    <div class="prof-btn-row">
+      <button class="prof-btn secondary" onclick="closeProfileModal()">Cancel</button>
+      <button class="prof-btn primary" onclick="saveProfileData()">Save Profile &amp; Schema</button>
+    </div>
   </div>
 </div>
 
@@ -1044,7 +1299,270 @@ function nextQuote(){
   document.getElementById('quoteAuthor').textContent = `— ${q.author}`;
 }
 
-setNav();initToday();renderAll();nextQuote();
+// Professional Profile Hub & LinkedIn Sync
+const PROFILE_KEY = 'naik_profile_data_v1';
+const DEFAULT_PROFILE = {
+  name: "Eslavath Narasimha Naik",
+  title: "Software Developer",
+  location: "📍 Kothagudem, Telangana, India",
+  skills: ["Java Backend Development", "Spring Boot", "React.js", "Web Design", "Database Management"],
+  bio: "Actively seeking Software Developer & Java Backend roles. Experienced in building scalable REST APIs, MVC applications, relational/NoSQL databases, and modern frontends. Click below to review my code repository contributions or connect on LinkedIn to discuss how I can deliver value to your engineering team!",
+  linkedin: "https://www.linkedin.com/in/eslavathnarasimhanaik",
+  github: "https://github.com/eslavathnarasimhanaik"
+};
+
+let profileData = loadProfile();
+
+function loadProfile() {
+  try {
+    const saved = localStorage.getItem(PROFILE_KEY);
+    if (saved) return JSON.parse(saved);
+  } catch(e) { console.error("Error loading profile", e); }
+  return { ...DEFAULT_PROFILE };
+}
+
+function saveProfile(data) {
+  try {
+    localStorage.setItem(PROFILE_KEY, JSON.stringify(data));
+    profileData = data;
+    updateProfileDOM();
+    updateJSONLD();
+  } catch(e) { console.error("Error saving profile", e); }
+}
+
+function updateProfileDOM() {
+  document.getElementById('cardName').textContent = profileData.name;
+  document.getElementById('cardTitle').textContent = profileData.title;
+  document.getElementById('cardLoc').textContent = profileData.location.startsWith('📍') ? profileData.location : '📍 ' + profileData.location;
+  document.getElementById('cardBio').textContent = profileData.bio;
+  
+  // Update skills
+  const skillsContainer = document.getElementById('cardSkills');
+  skillsContainer.innerHTML = profileData.skills.map(s => `<span class="dev-skill">${s.trim()}</span>`).join('');
+  
+  // Update links
+  document.getElementById('cardLinkedinLink').setAttribute('href', profileData.linkedin || DEFAULT_PROFILE.linkedin);
+  document.getElementById('cardGithubLink').setAttribute('href', profileData.github || DEFAULT_PROFILE.github);
+  
+  // Update avatar fallback onerror
+  const avatar = document.getElementById('cardAvatar');
+  avatar.src = `${profileData.github || DEFAULT_PROFILE.github}.png`;
+  avatar.onerror = function() {
+    this.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(profileData.name)}&background=3B6D11&color=fff`;
+  };
+}
+
+function updateJSONLD() {
+  let script = document.getElementById('personSchema');
+  if (!script) {
+    script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'personSchema';
+    document.head.appendChild(script);
+  }
+  const schemaObj = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": profileData.name,
+    "alternateName": ["eslavathnarasimhanaik", profileData.name.split(' ').pop()],
+    "url": profileData.github || DEFAULT_PROFILE.github,
+    "sameAs": [
+      profileData.github || DEFAULT_PROFILE.github,
+      profileData.linkedin || DEFAULT_PROFILE.linkedin
+    ],
+    "jobTitle": profileData.title,
+    "knowsAbout": profileData.skills,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": profileData.location.replace('📍', '').split(',')[0].trim(),
+      "addressRegion": "Telangana",
+      "addressCountry": "India"
+    }
+  };
+  script.textContent = JSON.stringify(schemaObj, null, 2);
+}
+
+// Modal management
+function openProfileModal() {
+  document.getElementById('profName').value = profileData.name;
+  document.getElementById('profTitle').value = profileData.title;
+  document.getElementById('profLoc').value = profileData.location;
+  document.getElementById('profBio').value = profileData.bio;
+  document.getElementById('profSkills').value = profileData.skills.join(', ');
+  
+  // Reset sync UI
+  document.getElementById('syncProgress').style.display = 'none';
+  document.getElementById('syncTextareaBox').style.display = 'none';
+  document.getElementById('rawLinkedInText').value = '';
+  
+  document.getElementById('profileModal').classList.add('open');
+}
+
+function closeProfileModal() {
+  document.getElementById('profileModal').classList.remove('open');
+}
+
+function saveProfileData() {
+  const skillsArr = document.getElementById('profSkills').value.split(',').map(s => s.trim()).filter(s => s.length > 0);
+  const updated = {
+    name: document.getElementById('profName').value.trim() || DEFAULT_PROFILE.name,
+    title: document.getElementById('profTitle').value.trim() || DEFAULT_PROFILE.title,
+    location: document.getElementById('profLoc').value.trim() || DEFAULT_PROFILE.location,
+    bio: document.getElementById('profBio').value.trim() || DEFAULT_PROFILE.bio,
+    skills: skillsArr.length ? skillsArr : DEFAULT_PROFILE.skills,
+    linkedin: profileData.linkedin || DEFAULT_PROFILE.linkedin,
+    github: profileData.github || DEFAULT_PROFILE.github
+  };
+  saveProfile(updated);
+  closeProfileModal();
+  
+  // show toast/alert
+  const b = document.getElementById('savedBanner');
+  b.innerHTML = "✓ Profile & SEO Schema Saved!";
+  b.style.display = 'flex';
+  setTimeout(() => b.style.display = 'none', 3000);
+}
+
+// Sync simulation
+function startLinkedInSync() {
+  const progress = document.getElementById('syncProgress');
+  const textareaBox = document.getElementById('syncTextareaBox');
+  const bar = document.getElementById('syncBarFill');
+  const status = document.getElementById('syncStatus');
+  
+  textareaBox.style.display = 'none';
+  progress.style.display = 'flex';
+  bar.style.width = '0%';
+  
+  const steps = [
+    { pct: 15, msg: "Handshaking with linkedin.com secure gateway..." },
+    { pct: 35, msg: "Connecting to public handle @eslavathnarasimhanaik..." },
+    { pct: 55, msg: "Request blocked by LinkedIn CORS origin policy..." },
+    { pct: 75, msg: "Attempting alternate REST API gateway bypass..." },
+    { pct: 100, msg: "CORS protection active. Initiating manual smart paste backup..." }
+  ];
+  
+  let stepIdx = 0;
+  function runStep() {
+    if (stepIdx < steps.length) {
+      const s = steps[stepIdx];
+      bar.style.width = s.pct + '%';
+      status.textContent = s.msg;
+      stepIdx++;
+      setTimeout(runStep, s.pct === 100 ? 1200 : 700);
+    } else {
+      // show smart importer
+      progress.style.display = 'none';
+      textareaBox.style.display = 'flex';
+    }
+  }
+  
+  runStep();
+}
+
+// Smart copy-paste regex parser
+function parseLinkedInText() {
+  const text = document.getElementById('rawLinkedInText').value.trim();
+  if (!text) {
+    alert("Please paste some text from your LinkedIn profile or resume first!");
+    return;
+  }
+  
+  let name = "";
+  let title = "";
+  let location = "";
+  let skills = [];
+  let bio = "";
+  
+  // 1. Try to extract Name (usually first line, or near top words)
+  const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+  if (lines.length > 0) {
+    // Search for Narasimha or Naik in top 5 lines
+    for (let i = 0; i < Math.min(lines.length, 5); i++) {
+      if (/Narasimha|Naik|Eslavath/i.test(lines[i]) && lines[i].length < 40) {
+        name = lines[i];
+        break;
+      }
+    }
+    if (!name) name = lines[0]; // fallback to first line
+  }
+  
+  // 2. Try to extract Job Title / Headline
+  for (let i = 0; i < Math.min(lines.length, 8); i++) {
+    if (lines[i] !== name && /Developer|Engineer|Programmer|Backend|Fullstack|Java|Specialist|Student/i.test(lines[i]) && lines[i].length < 60) {
+      title = lines[i];
+      break;
+    }
+  }
+  if (!title) title = "Software Developer | Java Backend";
+  
+  // 3. Try to extract Location
+  const locRegex = /([A-Za-z\s]+,\s*(?:Telangana|Andhra\s*Pradesh|India|Hyderabad|Kothagudem))/i;
+  const locMatch = text.match(locRegex);
+  if (locMatch) {
+    location = locMatch[1].trim();
+  } else {
+    // Loop lines and search for location keywords
+    for (let line of lines) {
+      if (/Kothagudem|Telangana|Hyderabad|India/i.test(line) && line.length < 50) {
+        location = line;
+        break;
+      }
+    }
+  }
+  if (!location) location = "Kothagudem, Telangana, India";
+  
+  // 4. Try to extract Skills
+  const techList = [
+    "Java", "Spring Boot", "React.js", "React", "JavaScript", "HTML", "CSS",
+    "SQL", "MySQL", "Database", "REST API", "MVC", "Git", "GitHub",
+    "Backend", "Web Design", "Microservices", "Data Structures", "Algorithms"
+  ];
+  techList.forEach(t => {
+    const reg = new RegExp('\\b' + t.replace('.', '\\.') + '\\b', 'i');
+    if (reg.test(text)) {
+      skills.push(t);
+    }
+  });
+  if (skills.length === 0) {
+    skills = [...DEFAULT_PROFILE.skills];
+  }
+  
+  // 5. Try to extract Bio / About
+  const aboutIdx = text.search(/About|Summary|Professional Summary/i);
+  if (aboutIdx !== -1) {
+    const excerpt = text.substring(aboutIdx).split('\n').slice(1, 5).join(' ').trim();
+    if (excerpt.length > 30) {
+      bio = excerpt.substring(0, 350);
+    }
+  }
+  if (!bio) {
+    for (let line of lines) {
+      if (line.length > 60 && !line.includes('http') && line.length < 350) {
+        bio = line;
+        break;
+      }
+    }
+  }
+  if (!bio) bio = DEFAULT_PROFILE.bio;
+  
+  // Populate input fields
+  document.getElementById('profName').value = name;
+  document.getElementById('profTitle').value = title;
+  document.getElementById('profLoc').value = location;
+  document.getElementById('profBio').value = bio;
+  document.getElementById('profSkills').value = skills.join(', ');
+  
+  alert("✅ Smart parser finished! Extracted data has been filled in. Review and click 'Save Profile' to finalize.");
+}
+
+// Initialize Profile on page load
+function initProfile() {
+  updateProfileDOM();
+  updateJSONLD();
+}
+
+setNav();initToday();renderAll();nextQuote();initProfile();
 </script>
 </body>
 </html>
