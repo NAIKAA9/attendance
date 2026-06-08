@@ -2795,32 +2795,35 @@ function runGEOSimulation() {
     }
   } else if (queryType === 'links') {
     if (currentSimEngine === 'gemini') {
-      text = `The social graphs and verified web domains for **${name}** include:\n\n• **Professional Link:** LinkedIn (in/eslavathnarasimhanaik)\n• **Source Code Hub:** GitHub (eslavathnarasimhanaik)\n• **Microblogging:** X (formerly Twitter) @eslavathnarasimhanaik\n• **Creative Media:** YouTube (@narasimhanaikai) and Instagram (@narasimhanaik.ai)\n• **Technical Blog:** Blogger (NAIK Posts)`;
+      text = `The social graphs and verified web domains for **${name}** include:\n\n• **Professional Link:** LinkedIn (in/eslavathnarasimhanaik)\n• **Source Code Hub:** GitHub (eslavathnarasimhanaik)\n• **Microblogging:** X (formerly Twitter) @eslavathnarasimhanaik\n• **Creative Media:** YouTube (@narasimhanaikai) and Instagram (@narasimhanaik.ai)\n• **Social Networking:** Facebook (eslavathnarasimhanaik)\n• **Technical Blog:** Blogger (NAIK Posts)`;
       sources = [
         { name: "LinkedIn", url: linkedin },
         { name: "GitHub", url: github },
         { name: "X (Twitter)", url: twitter },
         { name: "YouTube", url: youtube },
-        { name: "Instagram", url: instagram }
+        { name: "Instagram", url: instagram },
+        { name: "Facebook", url: facebook }
       ];
     } else if (currentSimEngine === 'perplexity') {
-      text = `You can locate **${name}** online via GitHub [1], LinkedIn [2], and his X (Twitter) profile [3]. He also maintains secondary profiles on YouTube [4], Instagram [5], and Pinterest [6].`;
+      text = `You can locate **${name}** online via GitHub [1], LinkedIn [2], and his X (Twitter) profile [3]. He also maintains secondary profiles on YouTube [4], Instagram [5], Pinterest [6], and Facebook [7].`;
       sources = [
         { name: "github.com", title: `GitHub Profile`, url: github },
         { name: "linkedin.com", title: `LinkedIn Profile`, url: linkedin },
         { name: "x.com", title: `X Profile`, url: twitter },
         { name: "youtube.com", title: `YouTube Channel`, url: youtube },
-        { name: "instagram.com", title: `Instagram Profile`, url: instagram }
+        { name: "instagram.com", title: `Instagram Profile`, url: instagram },
+        { name: "facebook.com", title: `Facebook Profile`, url: facebook }
       ];
     } else if (currentSimEngine === 'google') {
-      text = `Verified sameAs links for **${name}**:\n• **LinkedIn:** linkedin.com/in/eslavathnarasimhanaik\n• **GitHub:** github.com/eslavathnarasimhanaik\n• **X.com:** x.com/eslavathnarasimhanaik\n• **Instagram:** instagram.com/narasimhanaik.ai\n• **YouTube:** youtube.com/@narasimhanaikai`;
+      text = `Verified sameAs links for **${name}**:\n• **LinkedIn:** linkedin.com/in/eslavathnarasimhanaik\n• **GitHub:** github.com/eslavathnarasimhanaik\n• **X.com:** x.com/eslavathnarasimhanaik\n• **Instagram:** instagram.com/narasimhanaik.ai\n• **YouTube:** youtube.com/@narasimhanaikai\n• **Facebook:** facebook.com/eslavathnarasimhanaik`;
       sources = [
         { name: "linkedin.com", title: `LinkedIn Profile`, url: linkedin },
         { name: "github.com", title: `GitHub Profile`, url: github },
-        { name: "x.com", title: `X Profile`, url: twitter }
+        { name: "x.com", title: `X Profile`, url: twitter },
+        { name: "facebook.com", title: `Facebook Profile`, url: facebook }
       ];
     } else if (currentSimEngine === 'siri') {
-      text = `You can connect with Narasimha Naik on LinkedIn, GitHub, X, Instagram, and YouTube.`;
+      text = `You can connect with Narasimha Naik on LinkedIn, GitHub, X, Instagram, Facebook, and YouTube.`;
     }
   }
   
@@ -2909,7 +2912,7 @@ function speakVoiceBio() {
   } else if (queryType === 'location') {
     speechText = `He resides in Kothagudem, Telangana, India.`;
   } else if (queryType === 'links') {
-    speechText = `You can connect with Narasimha Naik on LinkedIn, GitHub, X, Instagram, and YouTube.`;
+    speechText = `You can connect with Narasimha Naik on LinkedIn, GitHub, X, Instagram, Facebook, and YouTube.`;
   }
   
   siriSpeechSynthesisUtterance = new SpeechSynthesisUtterance(speechText);
