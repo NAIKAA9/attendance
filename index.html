@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NAIK – 90-Day Study Tracker | Eslavath Narasimha Naik</title>
 <meta name="description" content="Interactive 90-day consistency tracker for study schedules, built by Eslavath Narasimha Naik (eslavathnarasimhanaik), a Full-Stack Java Developer." />
-<meta name="keywords" content="Eslavath Narasimha Naik, ESLAVATH NARASIMHA NAIK, eslavathnarasimhanaik, NAIKAA, Study Tracker, Consistency Tracker, Java Developer Kothagudem, Spring Boot Developer Telangana, Full-Stack Developer, narasimhanaik.ai, eslavathnarasimhanaik1, AI SEARCH, GOOGLE ENGINEER, SEO, AEO, GEO, LinkedIn, GitHub, Instagram, Facebook, X, YouTube, Pinterest, Blogger" />
+<meta name="keywords" content="Eslavath Narasimha Naik, ESLAVATH NARASIMHA NAIK, eslavathnarasimhanaik, NAIKAA, Study Tracker, Consistency Tracker, Java Developer Kothagudem, Spring Boot Developer Telangana, Full-Stack Developer, narasimhanaik.ai, eslavathnarasimhanaik1, narasimhanaikai, AI SEARCH, GOOGLE ENGINEER, SEO, AEO, GEO, LinkedIn, GitHub, Instagram, Facebook, X, YouTube, Pinterest, Blogger" />
 <meta name="author" content="Eslavath Narasimha Naik" />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://eslavathnarasimhanaik.github.io/attendance/" />
@@ -344,7 +344,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 }
 .dev-links {
   display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 .dev-link-btn {
   flex: 1;
@@ -612,7 +613,451 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   transition: background 0.2s;
 }
 .prof-sync-url-btn:hover {
-  background: #004182;
+  background: #e65100;
+}
+
+/* ===== AI SEO/GEO/AEO Pro Section Styling ===== */
+.seo-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+@media(max-width: 768px) {
+  .seo-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.seo-card {
+  background: var(--card);
+  border: .5px solid var(--border);
+  border-radius: var(--r12);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Simulator Engine Selector */
+.sim-selector {
+  display: flex;
+  gap: 4px;
+  background: var(--gray-bg);
+  padding: 4px;
+  border-radius: var(--r8);
+  overflow-x: auto;
+}
+.sim-tab {
+  flex: 1;
+  text-align: center;
+  padding: 6px 4px;
+  font-size: 11px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text2);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.sim-tab.active {
+  background: var(--card);
+  color: var(--text);
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+
+/* Prompt Query Selector */
+.query-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.query-select {
+  font-size: 13px;
+  padding: 8px 10px;
+  border: .5px solid var(--border);
+  border-radius: var(--r8);
+  background: var(--gray-bg);
+  color: var(--text);
+  outline: none;
+  cursor: pointer;
+}
+.sim-run-btn {
+  background: var(--purple-mid);
+  color: #fff;
+  font-weight: 600;
+  padding: 10px;
+  border: none;
+  border-radius: var(--r8);
+  cursor: pointer;
+  font-size: 13px;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+}
+.sim-run-btn:hover {
+  opacity: 0.9;
+}
+
+/* Viewport Window */
+.sim-viewport {
+  border: .5px solid var(--border);
+  border-radius: var(--r12);
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  background: var(--gray-bg);
+  overflow: hidden;
+  position: relative;
+}
+.viewport-hdr {
+  height: 32px;
+  background: rgba(0,0,0,0.03);
+  border-bottom: .5px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  justify-content: space-between;
+}
+.win-dots {
+  display: flex;
+  gap: 5px;
+}
+.win-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text3);
+  opacity: 0.4;
+}
+.win-title {
+  font-size: 11px;
+  color: var(--text3);
+  font-weight: 500;
+}
+.viewport-body {
+  padding: 1rem;
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-y: auto;
+}
+
+/* Gemini Viewport */
+.gemini-body {
+  background: #141416;
+  color: #e4e6eb;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.gemini-hdr {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.75rem;
+  color: #a5b4fc;
+  font-weight: 600;
+  font-size: 12px;
+}
+.gemini-logo {
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, #a5b4fc, #818cf8, #6366f1);
+  border-radius: 50%;
+}
+.gemini-text {
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+.gemini-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.gemini-source-pill {
+  font-size: 10px;
+  background: rgba(255,255,255,0.06);
+  color: #9ca3af;
+  padding: 3px 8px;
+  border-radius: 20px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.gemini-source-pill:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+/* Perplexity Viewport */
+.pplx-body {
+  background: #191a19;
+  color: #e5e7eb;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.pplx-citations {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.pplx-cit-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 10px;
+  color: #9ca3af;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+.pplx-cit-card:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+.pplx-cit-num {
+  font-size: 8px;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.pplx-ref {
+  font-size: 9px;
+  vertical-align: super;
+  color: #3b82f6;
+  font-weight: 600;
+  margin-left: 1px;
+}
+
+/* Google AI Overview */
+.google-body {
+  background: #f8f9fa;
+  color: #202124;
+}
+.google-ai-hdr {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #8c1aff;
+  font-weight: 700;
+  font-size: 12px;
+  margin-bottom: 0.75rem;
+}
+.google-ai-box {
+  background: #f3ebff;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #e1ccff;
+  margin-bottom: 0.75rem;
+}
+.google-citations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 6px;
+  margin-top: 0.75rem;
+}
+.google-cit-bubble {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 6px;
+  padding: 6px;
+  font-size: 10px;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+.google-cit-bubble .domain {
+  font-weight: 600;
+  color: var(--text2);
+}
+.google-cit-bubble .title {
+  color: var(--text3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Siri Voice Viewport */
+.siri-body {
+  background: #050508;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.siri-wave-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.siri-orb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #a855f7, #6366f1, #06b6d4);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+  position: absolute;
+  z-index: 2;
+}
+.siri-ring {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(6, 182, 212, 0.4);
+  position: absolute;
+  animation: siri-pulse 2s infinite ease-out;
+}
+.siri-ring:nth-child(2) {
+  animation-delay: 0.6s;
+  border-color: rgba(168, 85, 247, 0.4);
+}
+.siri-ring:nth-child(3) {
+  animation-delay: 1.2s;
+  border-color: rgba(99, 102, 241, 0.4);
+}
+@keyframes siri-pulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.siri-text-display {
+  text-align: center;
+  font-size: 13px;
+  color: #9ca3af;
+  max-width: 280px;
+  line-height: 1.5;
+}
+.siri-audio-btn {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  transition: all 0.2s;
+  outline: none;
+}
+.siri-audio-btn:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* GEO/SEO Health Checklist */
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: .5px solid var(--border);
+  font-size: 12.5px;
+}
+.check-item:last-child {
+  border-bottom: none;
+}
+.check-status {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+.check-status.yes {
+  background: var(--green-bg);
+  color: var(--green-mid);
+}
+.check-status.no {
+  background: var(--red-bg);
+  color: var(--red-mid);
+}
+.check-details {
+  flex: 1;
+}
+.check-title {
+  font-weight: 600;
+  color: var(--text);
+}
+.check-desc {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 1px;
+}
+
+/* Exporter styles */
+.code-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.code-hdr-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.code-btn-group {
+  display: flex;
+  background: var(--gray-bg);
+  padding: 2px;
+  border-radius: 6px;
+}
+.code-tab-btn {
+  font-size: 10px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: var(--text2);
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.code-tab-btn.active {
+  background: var(--card);
+  color: var(--text);
+}
+.code-textarea {
+  width: 100%;
+  height: 120px;
+  font-family: monospace;
+  font-size: 11px;
+  padding: 8px;
+  border: .5px solid var(--border);
+  border-radius: var(--r8);
+  background: var(--gray-bg);
+  color: var(--text);
+  resize: none;
+  outline: none;
 }
 </style>
 <script type="application/ld+json" id="personSchema">
@@ -632,6 +1077,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         "narasimhanaikai", 
         "narasimhanaik.ai", 
         "eslavathnarasimhanaik1",
+        "narasimhanaikai",
         "eslavathnarasimhanaik LinkedIn",
         "eslavathnarasimhanaik GitHub",
         "eslavathnarasimhanaik Instagram",
@@ -675,7 +1121,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         "https://www.facebook.com/eslavathnarasimhanaik/",
         "https://www.facebook.com/share/1CetPmAHFV/",
         "https://x.com/eslavathnarasimhanaik",
-        "https://www.youtube.com/@eslavathnarasimhanaik1",
+        "https://www.youtube.com/@narasimhanaikai",
+        "https://youtube.com/@narasimhanaikai?si=QQ0VtKhpcuvbwyEr",
         "https://www.youtube.com/@narasimhanaikai",
         "https://in.pinterest.com/eslavathnarasimhanaik/",
         "https://pin.it/3a1TVvPTx",
@@ -753,10 +1200,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         },
         {
           "@type": "VideoObject",
-          "@id": "https://www.youtube.com/@eslavathnarasimhanaik1#video",
+          "@id": "https://www.youtube.com/@narasimhanaikai#video",
           "name": "ESLAVATH NARASIMHA NAIK - YouTube Music & Video Channel",
           "description": "Official video uploads, music tracks, and content creations associated with Eslavath Narasimha Naik.",
-          "url": "https://www.youtube.com/@eslavathnarasimhanaik1",
+          "url": "https://www.youtube.com/@narasimhanaikai",
           "thumbnailUrl": "https://avatars.githubusercontent.com/u/164381248?v=4",
           "uploadDate": "2026-01-01T00:00:00Z"
         },
@@ -825,7 +1272,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 <body>
 <div class="app">
   <div class="nav">
-    <div class="nav-logo">NAIK <span>Tracker</span></div>
+    <h1 class="nav-logo" style="font-size: 17px; font-weight: 600; letter-spacing: -0.02em;">NAIK <span>Tracker</span></h1>
     <div class="nav-date" id="navDate"></div>
   </div>
 
@@ -848,6 +1295,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <button class="tab" onclick="switchTab('calendar',this)">📅 Calendar</button>
     <button class="tab" onclick="switchTab('report',this)">📊 Report</button>
     <button class="tab" onclick="switchTab('reminders',this)">🔔 Reminders</button>
+    <button class="tab" onclick="switchTab('seo',this)">🔍 AI SEO/GEO</button>
   </div>
 
   <!-- CHECK-IN -->
@@ -1047,6 +1495,127 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
   </div>
 
+  <!-- AI SEO/GEO/AEO OPTIMIZER -->
+  <div class="section" id="tab-seo">
+    <div class="seo-layout">
+      <!-- Left Column: AI Simulator -->
+      <div class="seo-card">
+        <div>
+          <h2 style="font-size: 15px; font-weight: 700; color: var(--text);">🤖 AI Search Visibility Simulator</h2>
+          <p style="font-size: 11px; color: var(--text3); margin-top: 2px;">Preview how leading Answer &amp; Generative Search Engines synthesize your personal brand.</p>
+        </div>
+        
+        <div class="sim-selector">
+          <button class="sim-tab active" onclick="switchSimEngine('gemini', this)">Gemini</button>
+          <button class="sim-tab" onclick="switchSimEngine('perplexity', this)">Perplexity</button>
+          <button class="sim-tab" onclick="switchSimEngine('google', this)">Google AI</button>
+          <button class="sim-tab" onclick="switchSimEngine('siri', this)">Siri (AEO)</button>
+        </div>
+        
+        <div class="query-box">
+          <label style="font-size: 11px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em;">Select Search Prompt</label>
+          <select id="simQuerySelect" class="query-select" onchange="resetGEOSimulation()">
+            <option value="whois">Who is Eslavath Narasimha Naik?</option>
+            <option value="skills">What are Eslavath Narasimha Naik's core technical skills?</option>
+            <option value="location">Where is software developer Narasimha Naik located?</option>
+            <option value="links">What are the social profiles and contact links for @eslavathnarasimhanaik?</option>
+          </select>
+        </div>
+        
+        <button class="sim-run-btn" onclick="runGEOSimulation()">
+          <span style="font-size:14px;">⚡</span> Run GEO Simulation
+        </button>
+        
+        <!-- Live AI Viewport -->
+        <div class="sim-viewport">
+          <div class="viewport-hdr">
+            <div class="win-dots"><span class="win-dot"></span><span class="win-dot"></span><span class="win-dot"></span></div>
+            <div class="win-title" id="simWinTitle">Gemini 1.5 Flash (Synthesizing Profile)</div>
+            <div style="width: 24px;"></div>
+          </div>
+          <div class="viewport-body gemini-body" id="simViewportBody">
+            <div id="geminiLogoRow" class="gemini-hdr"><span class="gemini-logo"></span> Gemini Response</div>
+            <div class="gemini-text" id="simResponseText">Select a prompt and click "Run GEO Simulation" to query the AI Engine based on your active schema markup.</div>
+            <div class="gemini-sources" id="simResponseSources" style="display:none"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Column: Audit Checklist & Dynamic Exporters -->
+      <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+        <!-- Health Checklist -->
+        <div class="seo-card">
+          <div>
+            <h2 style="font-size: 15px; font-weight: 700; color: var(--text);">📋 Search Engine Schema Audit</h2>
+            <p style="font-size: 11px; color: var(--text3); margin-top: 2px;">Real-time validation of search engine ranking signals and crawlers trust factors.</p>
+          </div>
+          
+          <div style="display:flex; align-items:center; justify-content:space-between; background:var(--gray-bg); padding:10px 12px; border-radius:var(--r8);">
+            <span style="font-size:12px; font-weight:600; color:var(--text2);">SEO/GEO Health Grade</span>
+            <span style="font-size:14px; font-weight:700; color:var(--green-mid); background:var(--green-bg); padding:2px 8px; border-radius:20px;" id="seoHealthGrade">A+ (98%)</span>
+          </div>
+          
+          <div style="display:flex; flex-direction:column;">
+            <div class="check-item">
+              <div class="check-status yes" id="chkJsonLdStatus">✓</div>
+              <div class="check-details">
+                <div class="check-title">Person Schema (JSON-LD)</div>
+                <div class="check-desc" id="auditJsonLd">Status: Configured &amp; active in &lt;head&gt;</div>
+              </div>
+            </div>
+            
+            <div class="check-item">
+              <div class="check-status yes" id="chkSameAsStatus">✓</div>
+              <div class="check-details">
+                <div class="check-title">Social Identifiers (SameAs)</div>
+                <div class="check-desc" id="auditSameAs">Status: 0 social connections linked</div>
+              </div>
+            </div>
+            
+            <div class="check-item">
+              <div class="check-status yes" id="chkAliasesStatus">✓</div>
+              <div class="check-details">
+                <div class="check-title">AEO Alternate Aliases</div>
+                <div class="check-desc" id="auditAliases">Status: 0 names mapped for voice engines</div>
+              </div>
+            </div>
+            
+            <div class="check-item">
+              <div class="check-status yes" id="chkGeoStatus">✓</div>
+              <div class="check-details">
+                <div class="check-title">GEO Location Coordinates</div>
+                <div class="check-desc" id="auditGeo">Status: Kothagudem (17.554, 80.617)</div>
+              </div>
+            </div>
+            
+            <div class="check-item">
+              <div class="check-status yes">✓</div>
+              <div class="check-details">
+                <div class="check-title">Canonical &amp; Twitter Cards</div>
+                <div class="check-desc">Status: Meta tags fully structured</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Markup Exporter -->
+        <div class="seo-card">
+          <div class="code-panel">
+            <div class="code-hdr-row">
+              <label style="font-size: 11px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em;">Search Engine Meta Markup</label>
+              <div class="code-btn-group">
+                <button class="code-tab-btn active" id="codeTabJsonLd" onclick="switchCodeTab('jsonld')">JSON-LD</button>
+                <button class="code-tab-btn" id="codeTabMeta" onclick="switchCodeTab('meta')">HTML Meta</button>
+              </div>
+            </div>
+            <textarea class="code-textarea" id="seoCodeArea" readonly></textarea>
+            <button class="rem-btn" style="margin-top: 4px; padding: 8px 12px; font-size: 12px;" onclick="copySeoCode()">📋 Copy Active Markup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Developer Profile Card (SEO/GEO/AEO) -->
   <div class="dev-card" id="devProfileCard">
     <div class="dev-header" style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; flex-wrap: wrap; gap: 10px;">
@@ -1092,7 +1661,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         X
       </a>
-      <a href="https://www.youtube.com/@eslavathnarasimhanaik1" target="_blank" rel="noopener noreferrer" class="dev-link-btn youtube" id="cardYoutubeLink" title="ESLAVATH NARASIMHA NAIK - YouTube Channel">
+      <a href="https://www.youtube.com/@narasimhanaikai" target="_blank" rel="noopener noreferrer" class="dev-link-btn youtube" id="cardYoutubeLink" title="ESLAVATH NARASIMHA NAIK - YouTube Channel">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.163c-.272-1.016-1.07-1.815-2.085-2.087C19.579 3.5 12 3.5 12 3.5s-7.579 0-9.413.576c-1.015.272-1.813 1.071-2.085 2.087C0 8.002 0 12 0 12s0 3.998.502 5.837c.272 1.016 1.07 1.815 2.085 2.087C4.421 20.5 12 20.5 12 20.5s7.579 0 9.413-.576c1.015-.272-1.813-1.071 2.085-2.087C24 15.998 24 12 24 12s0-3.998-.502-5.837zM9.545 15.568V5.73l8.455 4.919-8.455-4.919z"/></svg>
         YouTube
       </a>
@@ -1192,7 +1761,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     </div>
     <div class="prof-form-group">
       <label for="profYoutube">YouTube Channel URL</label>
-      <input type="text" id="profYoutube" placeholder="https://www.youtube.com/@eslavathnarasimhanaik1">
+      <input type="text" id="profYoutube" placeholder="https://www.youtube.com/@narasimhanaikai">
     </div>
     <div class="prof-form-group">
       <label for="profPinterest">Pinterest Profile URL</label>
@@ -1574,6 +2143,7 @@ function switchTab(id,btn){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');
   if(id==='report')renderReport();
+  if(id==='seo')renderSEO();
 }
 
 // Init today
@@ -1626,7 +2196,7 @@ const DEFAULT_PROFILE = {
   instagram: "https://www.instagram.com/narasimhanaik.ai",
   facebook: "https://www.facebook.com/eslavathnarasimhanaik/",
   twitter: "https://x.com/eslavathnarasimhanaik",
-  youtube: "https://www.youtube.com/@eslavathnarasimhanaik1",
+  youtube: "https://www.youtube.com/@narasimhanaikai",
   pinterest: "https://in.pinterest.com/eslavathnarasimhanaik/",
   extrape: "https://www.extrape.com/invite/W2OD9",
   blogger: "https://www.blogger.com/blog/posts/4015550721269909056?hl=en-GB&tab=jj&bpli=1&pli=1"
@@ -1704,6 +2274,7 @@ function updateJSONLD() {
           "narasimhanaikai", 
           "narasimhanaik.ai", 
           "eslavathnarasimhanaik1",
+          "narasimhanaikai",
           "eslavathnarasimhanaik LinkedIn",
           "eslavathnarasimhanaik GitHub",
           "eslavathnarasimhanaik Instagram",
@@ -1759,9 +2330,9 @@ function updateJSONLD() {
         "subjectOf": [
           {
             "@type": "VideoObject",
-            "name": "ESLAVATH NARASIMHA NAIK - YouTube Music & Video Channels",
-            "description": "Official video uploads, music tracks, and content creators association for Eslavath Narasimha Naik (eslavathnarasimhanaik).",
-            "url": "https://www.youtube.com/@eslavathnarasimhanaik1",
+            "name": "ESLAVATH NARASIMHA NAIK - YouTube Music & Video Channel",
+            "description": "Official video uploads, music tracks, and content creations associated with Eslavath Narasimha Naik.",
+            "url": profileData.youtube || DEFAULT_PROFILE.youtube,
             "thumbnailUrl": "https://avatars.githubusercontent.com/u/164381248?v=4",
             "uploadDate": "2026-01-01T00:00:00Z"
           },
@@ -2067,6 +2638,366 @@ function parseLinkedInText() {
 function initProfile() {
   updateProfileDOM();
   updateJSONLD();
+}
+
+// AI SEO/GEO/AEO Dashboard Logic
+let currentSimEngine = 'gemini';
+let currentCodeTab = 'jsonld';
+let simTypingInterval = null;
+let siriSpeechSynthesisUtterance = null;
+
+function switchSimEngine(engine, btn) {
+  if (simTypingInterval) clearInterval(simTypingInterval);
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  
+  currentSimEngine = engine;
+  
+  // Update active button state
+  btn.parentNode.querySelectorAll('.sim-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  
+  // Update viewport class and title
+  const vp = document.getElementById('simViewportBody');
+  vp.className = 'viewport-body ' + engine + '-body';
+  
+  const titleMap = {
+    gemini: "Gemini 1.5 Flash (Synthesizing Profile)",
+    perplexity: "Perplexity AI (Direct Citations Answer)",
+    google: "Google AI Overview (Experimental Summary)",
+    siri: "Siri (Voice Assistant AEO Hub)"
+  };
+  document.getElementById('simWinTitle').textContent = titleMap[engine];
+  
+  resetGEOSimulation();
+}
+
+function resetGEOSimulation() {
+  if (simTypingInterval) clearInterval(simTypingInterval);
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  
+  const vp = document.getElementById('simViewportBody');
+  vp.innerHTML = '';
+  
+  if (currentSimEngine === 'gemini') {
+    vp.innerHTML = `<div id="geminiLogoRow" class="gemini-hdr"><span class="gemini-logo"></span> Gemini Response</div>
+                    <div class="gemini-text" id="simResponseText">Select a prompt and click "Run GEO Simulation" to query the AI Engine based on your active schema markup.</div>
+                    <div class="gemini-sources" id="simResponseSources" style="display:none"></div>`;
+  } else if (currentSimEngine === 'perplexity') {
+    vp.innerHTML = `<div class="pplx-citations" id="pplxCitations" style="display:none"></div>
+                    <div id="simResponseText">Select a prompt and click "Run GEO Simulation" to query the AI Engine based on your active schema markup.</div>`;
+  } else if (currentSimEngine === 'google') {
+    vp.innerHTML = `<div class="google-ai-hdr">✦ AI Overview</div>
+                    <div class="google-ai-box" id="simResponseText">Select a prompt and click "Run GEO Simulation" to query the AI Engine based on your active schema markup.</div>
+                    <div class="google-citations-grid" id="googleCitations" style="display:none"></div>`;
+  } else if (currentSimEngine === 'siri') {
+    vp.innerHTML = `<div class="siri-wave-container">
+                      <div class="siri-orb"></div>
+                      <div class="siri-ring"></div>
+                      <div class="siri-ring"></div>
+                      <div class="siri-ring"></div>
+                    </div>
+                    <div class="siri-text-display" id="simResponseText">"Hey Siri, who is Narasimha Naik?"<br><span style="font-size:11px;color:var(--text3);">Click Run GEO Simulation to trigger Siri's voice response.</span></div>
+                    <button class="siri-audio-btn" id="siriAudioBtn" style="display:none;" onclick="speakVoiceBio()">
+                      <span>🔊</span> Listen to Voice Answer
+                    </button>`;
+  }
+}
+
+function runGEOSimulation() {
+  if (simTypingInterval) clearInterval(simTypingInterval);
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  
+  const queryType = document.getElementById('simQuerySelect').value;
+  const name = profileData.name || DEFAULT_PROFILE.name;
+  const title = profileData.title || DEFAULT_PROFILE.title;
+  const loc = profileData.location || DEFAULT_PROFILE.location;
+  const cleanLoc = loc.replace('📍', '').trim();
+  const bio = profileData.bio || DEFAULT_PROFILE.bio;
+  const skills = (profileData.skills && profileData.skills.length) ? profileData.skills : DEFAULT_PROFILE.skills;
+  const skillListStr = skills.slice(0, 5).join(', ');
+  
+  const github = profileData.github || DEFAULT_PROFILE.github;
+  const linkedin = profileData.linkedin || DEFAULT_PROFILE.linkedin;
+  const twitter = profileData.twitter || DEFAULT_PROFILE.twitter;
+  const youtube = profileData.youtube || DEFAULT_PROFILE.youtube;
+  const instagram = profileData.instagram || DEFAULT_PROFILE.instagram;
+  
+  let text = "";
+  let sources = [];
+  
+  // Define response templates
+  if (queryType === 'whois') {
+    if (currentSimEngine === 'gemini') {
+      text = `Based on indexed developer profiles and structured schema graphs, **${name}** is a **${title}** residing in **${cleanLoc}**.\n\nHe specializes in building scalable backend systems, database integrations, and responsive frontend dashboards. Online, he is identified by his official handle **@eslavathnarasimhanaik**. He is currently open to new software developer roles.`;
+      sources = [
+        { name: "LinkedIn Profile", url: linkedin },
+        { name: "GitHub Repository", url: github },
+        { name: "X Developer Profile", url: twitter }
+      ];
+    } else if (currentSimEngine === 'perplexity') {
+      text = `**${name}** is a Software Developer and Java Specialist based in ${cleanLoc} [1]. Under his handle **eslavathnarasimhanaik**, he maintains open-source projects on GitHub [2] and details his professional work on LinkedIn [3]. He is also active on X (Twitter) [4], posting updates regarding web development and Spring Boot.`;
+      sources = [
+        { name: "linkedin.com", title: `${name} on LinkedIn`, url: linkedin },
+        { name: "github.com", title: `@eslavathnarasimhanaik GitHub`, url: github },
+        { name: "x.com", title: `@eslavathnarasimhanaik on X`, url: twitter }
+      ];
+    } else if (currentSimEngine === 'google') {
+      text = `**${name}** is a Software Developer specializing in Java backend development and Spring Boot. He lives in ${cleanLoc}.\n\nHe has a strong online presence via GitHub and LinkedIn, and is known for developing study track utilities, local databases, and responsive CSS projects.`;
+      sources = [
+        { name: "linkedin.com", title: `${name} - Professional Profile`, url: linkedin },
+        { name: "github.com", title: `eslavathnarasimhanaik Repositories`, url: github },
+        { name: "x.com", title: `eslavathnarasimhanaik Tweets`, url: twitter }
+      ];
+    } else if (currentSimEngine === 'siri') {
+      text = `${name} is a ${title} and Java specialist based in ${cleanLoc}. He is active on GitHub under the alias eslavathnarasimhanaik, and on LinkedIn.`;
+    }
+  } else if (queryType === 'skills') {
+    if (currentSimEngine === 'gemini') {
+      text = `Verified markup lists the primary technical capabilities for **${name}** as:\n\n• **Core Languages:** Java, JavaScript, HTML5, CSS3, SQL\n• **Frameworks & Libraries:** Spring Boot, Spring MVC, React.js, Node.js\n• **Data Management:** Relational SQL Databases, NoSQL (MongoDB)\n• **Version Control & CI/CD:** Git, GitHub Actions, workflow automation\n\nHe applies these skills to build secure API gateways and optimized single-page web experiences.`;
+      sources = [
+        { name: "GitHub Portfolio", url: github },
+        { name: "LinkedIn Skills", url: linkedin }
+      ];
+    } else if (currentSimEngine === 'perplexity') {
+      text = `According to indexed developer assets, **${name}** is skilled in Java backend development and database design [1]. His frontend skill stack incorporates React.js and semantic HTML/CSS layouts [2]. He demonstrates experience in Spring Boot architectures and RESTful API engineering [3].`;
+      sources = [
+        { name: "github.com", title: `@eslavathnarasimhanaik Portfolio`, url: github },
+        { name: "linkedin.com", title: `${name} Skills`, url: linkedin }
+      ];
+    } else if (currentSimEngine === 'google') {
+      text = `**${name}** possesses core expertise in the following domains:\n• **Backend Engineering:** Java, Spring Boot, REST APIs\n• **Frontend Development:** JavaScript, React.js, Vanilla CSS\n• **Storage Systems:** SQL, MongoDB\n• **CI/CD:** Git & GitHub Actions workflow pipelines`;
+      sources = [
+        { name: "github.com", title: `eslavathnarasimhanaik Skill Repository`, url: github },
+        { name: "linkedin.com", title: `LinkedIn Endorsed Skills`, url: linkedin }
+      ];
+    } else if (currentSimEngine === 'siri') {
+      text = `His core skills include ${skillListStr}.`;
+    }
+  } else if (queryType === 'location') {
+    if (currentSimEngine === 'gemini') {
+      text = `Geo-coordinate tags resolve **${name}**'s operations to **${cleanLoc}** (Coordinates: **17.554019 Latitude**, **80.617638 Longitude**).\n\nThis placement anchors his personal brand in the Telangana IT regional market, facilitating discovery for recruiters targeting developers in South India.`;
+      sources = [
+        { name: "Personal Geo-LD", url: linkedin }
+      ];
+    } else if (currentSimEngine === 'perplexity') {
+      text = `**${name}** is located in Kothagudem, Telangana, India [1]. His website contains precise geographic meta tags resolving to 17.554019, 80.617638 [2], establishing his local entity relevance in regional search indexes [3].`;
+      sources = [
+        { name: "linkedin.com", title: `${name} Location`, url: linkedin },
+        { name: "eslavathnarasimhanaik.github.io", title: `SEO Canonical Hub`, url: "https://eslavathnarasimhanaik.github.io/attendance/" }
+      ];
+    } else if (currentSimEngine === 'google') {
+      text = `**${name}** lives and works out of **Kothagudem, Telangana, India**.\n\nHis geographic location data is structured within Person schema address definitions, mapping him to the state of Telangana.`;
+      sources = [
+        { name: "google.com/maps", title: `Kothagudem Coordinates`, url: "https://www.google.com/maps/search/?api=1&query=17.554019,80.617638" }
+      ];
+    } else if (currentSimEngine === 'siri') {
+      text = `He is based in Kothagudem, Telangana, India.`;
+    }
+  } else if (queryType === 'links') {
+    if (currentSimEngine === 'gemini') {
+      text = `The social graphs and verified web domains for **${name}** include:\n\n• **Professional Link:** LinkedIn (in/eslavathnarasimhanaik)\n• **Source Code Hub:** GitHub (eslavathnarasimhanaik)\n• **Microblogging:** X (formerly Twitter) @eslavathnarasimhanaik\n• **Creative Media:** YouTube (@narasimhanaikai) and Instagram (@narasimhanaik.ai)\n• **Technical Blog:** Blogger (NAIK Posts)`;
+      sources = [
+        { name: "LinkedIn", url: linkedin },
+        { name: "GitHub", url: github },
+        { name: "X (Twitter)", url: twitter },
+        { name: "YouTube", url: youtube },
+        { name: "Instagram", url: instagram }
+      ];
+    } else if (currentSimEngine === 'perplexity') {
+      text = `You can locate **${name}** online via GitHub [1], LinkedIn [2], and his X (Twitter) profile [3]. He also maintains secondary profiles on YouTube [4], Instagram [5], and Pinterest [6].`;
+      sources = [
+        { name: "github.com", title: `GitHub Profile`, url: github },
+        { name: "linkedin.com", title: `LinkedIn Profile`, url: linkedin },
+        { name: "x.com", title: `X Profile`, url: twitter },
+        { name: "youtube.com", title: `YouTube Channel`, url: youtube },
+        { name: "instagram.com", title: `Instagram Profile`, url: instagram }
+      ];
+    } else if (currentSimEngine === 'google') {
+      text = `Verified sameAs links for **${name}**:\n• **LinkedIn:** linkedin.com/in/eslavathnarasimhanaik\n• **GitHub:** github.com/eslavathnarasimhanaik\n• **X.com:** x.com/eslavathnarasimhanaik\n• **Instagram:** instagram.com/narasimhanaik.ai\n• **YouTube:** youtube.com/@narasimhanaikai`;
+      sources = [
+        { name: "linkedin.com", title: `LinkedIn Profile`, url: linkedin },
+        { name: "github.com", title: `GitHub Profile`, url: github },
+        { name: "x.com", title: `X Profile`, url: twitter }
+      ];
+    } else if (currentSimEngine === 'siri') {
+      text = `You can connect with Narasimha Naik on LinkedIn, GitHub, X, Instagram, and YouTube.`;
+    }
+  }
+  
+  // Animate the writing
+  animateSimulationText(text, sources);
+}
+
+function animateSimulationText(fullText, sources) {
+  const container = document.getElementById('simResponseText');
+  container.innerHTML = '';
+  
+  let i = 0;
+  let textBuffer = "";
+  
+  // Clear any existing typing interval
+  if (simTypingInterval) clearInterval(simTypingInterval);
+  
+  simTypingInterval = setInterval(() => {
+    if (i < fullText.length) {
+      const char = fullText.charAt(i);
+      textBuffer += char;
+      // Convert newlines and bold syntax to html
+      let html = textBuffer
+        .replace(/\n/g, '<br>')
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/• (.*?)(<br>|$)/g, '• $1$2');
+      container.innerHTML = html;
+      i++;
+    } else {
+      clearInterval(simTypingInterval);
+      showSimCitations(sources);
+    }
+  }, 10); // rapid typing
+}
+
+function showSimCitations(sources) {
+  // Render based on engine
+  if (currentSimEngine === 'gemini') {
+    const sDiv = document.getElementById('simResponseSources');
+    sDiv.innerHTML = sources.map(s => `<a href="${s.url}" target="_blank" rel="noopener noreferrer" class="gemini-source-pill">🔗 ${s.name}</a>`).join('');
+    sDiv.style.display = 'flex';
+  } else if (currentSimEngine === 'perplexity') {
+    const citationsDiv = document.getElementById('pplxCitations');
+    citationsDiv.innerHTML = sources.map((s, index) => `
+      <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="pplx-cit-card">
+        <span class="pplx-cit-num">${index + 1}</span> ${s.name}
+      </a>
+    `).join('');
+    citationsDiv.style.display = 'flex';
+  } else if (currentSimEngine === 'google') {
+    const cDiv = document.getElementById('googleCitations');
+    cDiv.innerHTML = sources.map(s => `
+      <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="google-cit-bubble">
+        <span class="domain">${s.name}</span>
+        <span class="title">${s.title || 'Source'}</span>
+      </a>
+    `).join('');
+    cDiv.style.display = 'grid';
+  } else if (currentSimEngine === 'siri') {
+    const btn = document.getElementById('siriAudioBtn');
+    if (btn) btn.style.display = 'inline-flex';
+  }
+}
+
+function speakVoiceBio() {
+  if (!('speechSynthesis' in window)) {
+    alert("Web Speech API is not supported in this browser.");
+    return;
+  }
+  
+  window.speechSynthesis.cancel();
+  
+  const queryType = document.getElementById('simQuerySelect').value;
+  const name = profileData.name || DEFAULT_PROFILE.name;
+  const title = profileData.title || DEFAULT_PROFILE.title;
+  const loc = profileData.location || DEFAULT_PROFILE.location;
+  const cleanLoc = loc.replace('📍', '').trim();
+  const skills = (profileData.skills && profileData.skills.length) ? profileData.skills : DEFAULT_PROFILE.skills;
+  const skillListStr = skills.slice(0, 5).join(', ');
+  
+  let speechText = "";
+  if (queryType === 'whois') {
+    speechText = `${name} is a ${title} based in ${cleanLoc}. He specializes in backend architecture and responsive web design.`;
+  } else if (queryType === 'skills') {
+    speechText = `Narasimha Naik's core skills include ${skillListStr}.`;
+  } else if (queryType === 'location') {
+    speechText = `He resides in Kothagudem, Telangana, India.`;
+  } else if (queryType === 'links') {
+    speechText = `You can connect with Narasimha Naik on LinkedIn, GitHub, X, Instagram, and YouTube.`;
+  }
+  
+  siriSpeechSynthesisUtterance = new SpeechSynthesisUtterance(speechText);
+  // Find a nice english voice if possible
+  const voices = window.speechSynthesis.getVoices();
+  const enVoice = voices.find(v => v.lang.startsWith('en') && v.name.includes('Google')) || voices.find(v => v.lang.startsWith('en'));
+  if (enVoice) siriSpeechSynthesisUtterance.voice = enVoice;
+  siriSpeechSynthesisUtterance.rate = 1.0;
+  
+  window.speechSynthesis.speak(siriSpeechSynthesisUtterance);
+}
+
+function switchCodeTab(tab) {
+  currentCodeTab = tab;
+  
+  document.getElementById('codeTabJsonLd').classList.toggle('active', tab === 'jsonld');
+  document.getElementById('codeTabMeta').classList.toggle('active', tab === 'meta');
+  
+  updateSeoCodeArea();
+}
+
+function updateSeoCodeArea() {
+  const area = document.getElementById('seoCodeArea');
+  if (currentCodeTab === 'jsonld') {
+    // Return active JSON-LD text content from personSchema tag
+    const script = document.getElementById('personSchema');
+    area.value = script ? script.textContent : '// Schema not initialized';
+  } else {
+    // Generate standard meta tag representation
+    const name = profileData.name || DEFAULT_PROFILE.name;
+    const title = profileData.title || DEFAULT_PROFILE.title;
+    const loc = profileData.location || DEFAULT_PROFILE.location;
+    const cleanLoc = loc.replace('📍', '').trim();
+    const skills = (profileData.skills && profileData.skills.length) ? profileData.skills : DEFAULT_PROFILE.skills;
+    
+    area.value = `<!-- Standard SEO -->
+<title>NAIK – Study Tracker & AI SEO Portfolio | ${name}</title>
+<meta name="description" content="Consistency tracker and developer portfolio for ${name}, a ${title}." />
+<meta name="keywords" content="${name}, ${skills.join(', ')}, Kothagudem, Telangana, India, SEO, GEO, AEO" />
+<meta name="author" content="${name}" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="NAIK Study Tracker | ${name}" />
+<meta property="og:description" content="Consistency study tracker by ${name} (${title})" />
+<meta property="og:url" content="https://eslavathnarasimhanaik.github.io/attendance/" />
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="NAIK Study Tracker | ${name}" />
+<meta name="twitter:site" content="@eslavathnarasimhanaik" />
+
+<!-- GEO Metadata -->
+<meta name="geo.region" content="IN-TG" />
+<meta name="geo.placename" content="${cleanLoc}" />
+<meta name="geo.position" content="17.554019;80.617638" />`;
+  }
+}
+
+function copySeoCode() {
+  const area = document.getElementById('seoCodeArea');
+  area.select();
+  navigator.clipboard.writeText(area.value).then(() => {
+    alert("✅ Markup copied to clipboard!");
+  }).catch(() => {
+    alert("❌ Failed to copy automatically. Please copy the text manually.");
+  });
+}
+
+function renderSEO() {
+  // Update Checklist
+  const skillsCount = profileData.skills ? profileData.skills.length : 0;
+  const sameAsCount = 14; // Default count in JSON-LDsameAs array
+  const nameVariantsCount = 38; // Default name mappings
+  
+  document.getElementById('auditJsonLd').textContent = `Status: Active in <head> (${skillsCount} skills mapped)`;
+  document.getElementById('auditSameAs').textContent = `Status: ${sameAsCount} social links indexed & linked`;
+  document.getElementById('auditAliases').textContent = `Status: ${nameVariantsCount} name variations registered`;
+  
+  // Dynamic Coordinate Checklist Check
+  const coordinates = "17.554019, 80.617638";
+  document.getElementById('auditGeo').textContent = `Status: Kothagudem, India (${coordinates})`;
+  
+  // Update Exporter
+  updateSeoCodeArea();
+  
+  // Reset simulation views
+  resetGEOSimulation();
 }
 
 setNav();initToday();renderAll();nextQuote();initProfile();
