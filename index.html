@@ -1397,15 +1397,10 @@ html[data-theme='dark'] .aeo-wave-bars {
         "https://github.com/eslavathnarasimhanaik",
         "https://www.instagram.com/narasimhanaik.ai",
         "https://www.facebook.com/eslavathnarasimhanaik/",
-        "https://www.facebook.com/share/1CetPmAHFV/",
         "https://x.com/eslavathnarasimhanaik",
         "https://www.youtube.com/@narasimhanaikai",
-        "https://youtube.com/@narasimhanaikai?si=QQ0VtKhpcuvbwyEr",
         "https://in.pinterest.com/eslavathnarasimhanaik/",
-        "https://pin.it/3a1TVvPTx",
-        "https://pin.it/7qYe90FF0",
         "https://www.extrape.com/invite/W2OD9",
-        "https://www.blogger.com/profile/14939153609835552652",
         "https://eslavathnarasimhanaik.blogspot.com/",
         "https://naikaa.me/"
       ],
@@ -2137,7 +2132,7 @@ html[data-theme='dark'] .aeo-wave-bars {
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
         Extrape
       </a>
-      <a href="https://www.blogger.com/profile/14939153609835552652" target="_blank" rel="noopener noreferrer" class="dev-link-btn blogger" id="cardBloggerLink" title="ESLAVATH NARASIMHA NAIK - Blogger Profile">
+      <a href="https://eslavathnarasimhanaik.blogspot.com/" target="_blank" rel="noopener noreferrer" class="dev-link-btn blogger" id="cardBloggerLink" title="ESLAVATH NARASIMHA NAIK - Blogger Blog">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16.208 2H7.792C4.593 2 2 4.593 2 7.792v8.416C2 19.407 4.593 22 7.792 22h8.416C19.407 22 22 19.407 22 16.208V7.792C22 4.593 19.407 2 16.208 2zm-5.748 13.917c-1.517 0-2.748-1.231-2.748-2.748s1.231-2.748 2.748-2.748 2.748 1.231 2.748 2.748-1.231 2.748-2.748 2.748zm5.748-5.748c-1.517 0-2.748-1.231-2.748-2.748s1.231-2.748 2.748-2.748 2.748 1.231 2.748 2.748-1.231 2.748-2.748 2.748z"/></svg>
         Blogger
       </a>
@@ -2237,7 +2232,7 @@ html[data-theme='dark'] .aeo-wave-bars {
     </div>
     <div class="prof-form-group">
       <label for="profBlogger">Blogger URL</label>
-      <input type="text" id="profBlogger" placeholder="https://www.blogger.com/profile/14939153609835552652">
+      <input type="text" id="profBlogger" placeholder="https://eslavathnarasimhanaik.blogspot.com/">
     </div>
     
     <div class="prof-btn-row">
@@ -2663,7 +2658,7 @@ const DEFAULT_PROFILE = {
   youtube: "https://www.youtube.com/@narasimhanaikai",
   pinterest: "https://in.pinterest.com/eslavathnarasimhanaik/",
   extrape: "https://www.extrape.com/invite/W2OD9",
-  blogger: "https://www.blogger.com/profile/14939153609835552652"
+  blogger: "https://eslavathnarasimhanaik.blogspot.com/"
 };
 
 let profileData = loadProfile();
@@ -2778,15 +2773,11 @@ function updateJSONLD() {
           profileData.github || DEFAULT_PROFILE.github,
           profileData.instagram || DEFAULT_PROFILE.instagram,
           profileData.facebook || DEFAULT_PROFILE.facebook,
-          "https://www.facebook.com/share/1CetPmAHFV/",
           profileData.twitter || DEFAULT_PROFILE.twitter,
           profileData.youtube || DEFAULT_PROFILE.youtube,
           "https://in.pinterest.com/eslavathnarasimhanaik/",
-          "https://pin.it/3a1TVvPTx",
-          "https://pin.it/7qYe90FF0",
           profileData.extrape || DEFAULT_PROFILE.extrape,
           profileData.blogger || DEFAULT_PROFILE.blogger,
-          "https://eslavathnarasimhanaik.blogspot.com/",
           "https://naikaa.me/"
         ],
         "jobTitle": profileData.title,
@@ -3477,15 +3468,14 @@ function renderEntityGraph() {
   const root = { x: 200, y: 140, label: "ESLAVATH NARASIMHA NAIK", color: "#6366f1", r: 18, desc: "Primary Identity / Central Search Entity Node" };
   const platforms = [
     { label: "LinkedIn", url: "https://www.linkedin.com/in/eslavathnarasimhanaik", handle: "eslavathnarasimhanaik", color: "#0077b5", angle: 0, status: "Verified 2-Way" },
-    { label: "GitHub", url: "https://github.com/eslavathnarasimhanaik", handle: "eslavathnarasimhanaik", color: "#24292e", angle: 36, status: "Verified 2-Way" },
-    { label: "Instagram", url: "https://www.instagram.com/narasimhanaik.ai", handle: "narasimhanaik.ai", color: "#e1306c", angle: 72, status: "Verified 2-Way" },
-    { label: "Facebook", url: "https://www.facebook.com/eslavathnarasimhanaik", handle: "eslavathnarasimhanaik", color: "#1877f2", angle: 108, status: "Verified 2-Way" },
-    { label: "X.com", url: "https://x.com/eslavathnarasimhanaik", handle: "eslavathnarasimhanaik", color: "#1da1f2", angle: 144, status: "Verified 2-Way" },
-    { label: "YouTube", url: "https://www.youtube.com/@narasimhanaikai", handle: "@narasimhanaikai", color: "#ff0000", angle: 180, status: "Verified 2-Way" },
-    { label: "Pinterest", url: "https://in.pinterest.com/eslavathnarasimhanaik/", handle: "eslavathnarasimhanaik", color: "#bd081c", angle: 216, status: "Verified 2-Way" },
-    { label: "Extrape", url: "https://www.extrape.com/invite/W2OD9", handle: "W2OD9", color: "#e65100", angle: 252, status: "Verified 2-Way" },
-    { label: "Blogger Profile", url: "https://www.blogger.com/profile/14939153609835552652", handle: "14939153609835552652", color: "#f57c00", angle: 288, status: "Verified 2-Way" },
-    { label: "Blogger Blog", url: "https://eslavathnarasimhanaik.blogspot.com/", handle: "eslavathnarasimhanaik.blogspot.com", color: "#f57c00", angle: 324, status: "Verified 2-Way" }
+    { label: "GitHub", url: "https://github.com/eslavathnarasimhanaik", handle: "eslavathnarasimhanaik", color: "#24292e", angle: 40, status: "Verified 2-Way" },
+    { label: "Instagram", url: "https://www.instagram.com/narasimhanaik.ai", handle: "narasimhanaik.ai", color: "#e1306c", angle: 80, status: "Verified 2-Way" },
+    { label: "Facebook", url: "https://www.facebook.com/eslavathnarasimhanaik", handle: "eslavathnarasimhanaik", color: "#1877f2", angle: 120, status: "Verified 2-Way" },
+    { label: "X.com", url: "https://x.com/eslavathnarasimhanaik", handle: "eslavathnarasimhanaik", color: "#1da1f2", angle: 160, status: "Verified 2-Way" },
+    { label: "YouTube", url: "https://www.youtube.com/@narasimhanaikai", handle: "@narasimhanaikai", color: "#ff0000", angle: 200, status: "Verified 2-Way" },
+    { label: "Pinterest", url: "https://in.pinterest.com/eslavathnarasimhanaik/", handle: "eslavathnarasimhanaik", color: "#bd081c", angle: 240, status: "Verified 2-Way" },
+    { label: "Extrape", url: "https://www.extrape.com/invite/W2OD9", handle: "W2OD9", color: "#e65100", angle: 280, status: "Verified 2-Way" },
+    { label: "Blogger", url: "https://eslavathnarasimhanaik.blogspot.com/", handle: "eslavathnarasimhanaik.blogspot.com", color: "#f57c00", angle: 320, status: "Verified 2-Way" }
   ];
   
   const dist = 90;
