@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <title><data:view.title.escaped/></title>
+    <b:include data='blog' name='all-head-content'/>
+
+    <!-- START ESLAVATH NARASIMHA NAIK COMPLETE POWER PRO SEO / GEO / AEO PINS -->
+    <!-- 1. Search Console GSC Verification Tag -->
+    <meta name='google-site-verification' content='FW7rcxi_mwc3X5nxhlJqMHrgi2c0XjySaZqLthbYjjE' />
+
+    <!-- 2. Local GEO-Location Coordinates -->
+    <meta name='geo.region' content='IN-TG' />
+    <meta name='geo.placename' content='Kothagudem' />
+    <meta name='geo.position' content='17.554019;80.617638' />
+    <meta name='ICBM' content='17.554019, 80.617638' />
+
+    <!-- 3. Canonical Link for Search Indexing -->
+    <link rel='canonical' expr:href='data:view.url.canonical' />
+
+    <!-- 4. Dynamic Meta Description for Homepage -->
+    <b:if cond='data:view.isHomepage'>
+      <meta name="description" content="Official blog of Eslavath Narasimha Naik (eslavathnarasimhanaik), a Full-Stack Java Developer specializing in Spring Boot, React, and REST APIs. Read tech articles, career updates, and coding insights." />
+    </b:if>
+
+    <!-- 5. Open Graph Protocols (Social Graph Optimization) -->
+    <meta property='og:type' content='website' />
+    <meta property='og:site_name' content='Eslavath Narasimha Naik Blog' />
+    <meta expr:content='data:view.title.escaped' property='og:title' />
+    <meta expr:content='data:view.url.canonical' property='og:url' />
+    <meta content='https://avatars.githubusercontent.com/u/164381248?v=4' property='og:image' />
+    <b:if cond='data:view.description'>
+      <meta expr:content='data:view.description' property='og:description' />
+    <b:else/>
+      <meta content='Read software engineering articles and coding insights by Full-Stack Developer Eslavath Narasimha Naik.' property='og:description' />
+    </b:if>
+
+    <!-- 6. Twitter / X Card Optimization -->
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:site' content='@eslavathnarasimhanaik' />
+    <meta name='twitter:creator' content='@eslavathnarasimhanaik' />
+    <meta expr:content='data:view.title.escaped' name='twitter:title' />
+    <meta content='https://avatars.githubusercontent.com/u/164381248?v=4' name='twitter:image' />
+    <b:if cond='data:view.description'>
+      <meta expr:content='data:view.description' name='twitter:description' />
+    <b:else/>
+      <meta content='Read software engineering articles and coding insights by Full-Stack Developer Eslavath Narasimha Naik.' name='twitter:description' />
+    </b:if>
+
+    <!-- 7. Structured JSON-LD Person Graph Schema -->
+    <script type='application/ld+json'>
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://eslavathnarasimhanaik.github.io/#person",
+          "name": "Eslavath Narasimha Naik",
+          "alternateName": [
+            "eslavathnarasimhanaik",
+            "NAIKAA",
+            "Narasimha Naik",
+            "ESLAVATH NARASIMHA NAIK",
+            "eslavathnarasimhanaik",
+            "narasimhanaik.ai",
+            "eslavathnarasimhanaik1",
+            "narasimhanaikai"
+          ],
+          "jobTitle": "Full-Stack Software Developer",
+          "url": "https://eslavathnarasimhanaik.github.io",
+          "image": "https://avatars.githubusercontent.com/u/164381248?v=4",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Kothagudem",
+            "addressRegion": "Telangana",
+            "addressCountry": "India"
+          },
+          "knowsAbout": [
+            "Java",
+            "Spring Boot",
+            "REST APIs",
+            "React.js",
+            "Node.js",
+            "MongoDB",
+            "SQL",
+            "Git and GitHub Actions",
+            "Full-Stack Web Development",
+            "Responsive Web Design",
+            "Search Engine Optimization (SEO)",
+            "Answer Engine Optimization (AEO)"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/eslavathnarasimhanaik",
+            "https://github.com/eslavathnarasimhanaik",
+            "https://www.instagram.com/narasimhanaik.ai",
+            "https://www.facebook.com/eslavathnarasimhanaik/",
+            "https://x.com/eslavathnarasimhanaik",
+            "https://www.youtube.com/@narasimhanaikai",
+            "https://in.pinterest.com/eslavathnarasimhanaik/",
+            "https://www.extrape.com/invite/W2OD9",
+            "https://eslavathnarasimhanaik.blogspot.com/",
+            "https://naikaa.me/",
+            "https://eslavathnarasimhanaik.github.io/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://eslavathnarasimhanaik.blogspot.com/#website",
+          "url": "https://eslavathnarasimhanaik.blogspot.com/",
+          "name": "Eslavath Narasimha Naik Blog",
+          "description": "Official technical blog of Eslavath Narasimha Naik focusing on Java backend engineering, web design, and smart web applications.",
+          "publisher": {
+            "@id": "https://eslavathnarasimhanaik.github.io/#person"
+          }
+        },
+        {
+          "@type": "Blog",
+          "@id": "https://eslavathnarasimhanaik.blogspot.com/#blog",
+          "url": "https://eslavathnarasimhanaik.blogspot.com/",
+          "name": "NAIKAA",
+          "description": "Software development insights and career updates by Eslavath Narasimha Naik.",
+          "publisher": {
+            "@id": "https://eslavathnarasimhanaik.github.io/#person"
+          },
+          "author": {
+            "@id": "https://eslavathnarasimhanaik.github.io/#person"
+          }
+        }
+      ]
+    }
+    </script>
+    <!-- END ESLAVATH NARASIMHA NAIK COMPLETE POWER PRO SEO / GEO / AEO PINS -->
+
+    <!-- Required CSS Skin Wrapper -->
+    <b:skin><![CDATA[
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      .header-outer {
+        background-color: #f57c00;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      .content-outer {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+    ]]></b:skin>
+  </head>
+  <body>
+    <!-- Header widget -->
+    <header class='header-outer'>
+      <b:section id='header' maxwidgets='1' showaddelement='no'>
+        <b:widget id='Header1' locked='true' title='NAIKAA (Header)' type='Header' version='2'>
+          <b:includable id='main'>
+            <h1><data:title/></h1>
+            <p><data:description/></p>
+          </b:includable>
+        </b:widget>
+      </b:section>
+    </header>
+
+    <!-- Main blog section -->
+    <main class='content-outer'>
+      <b:section id='main' showaddelement='yes'>
+        <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' version='2'>
+          <b:includable id='main'>
+            <b:loop values='data:posts' var='post'>
+              <article class='post'>
+                <h2><a expr:href='data:post.url'><data:post.title/></a></h2>
+                <div class='post-body'>
+                  <data:post.body/>
+                </div>
+              </article>
+            </b:loop>
+          </b:includable>
+        </b:widget>
+      </b:section>
+    </main>
+  </body>
+</html>
