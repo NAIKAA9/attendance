@@ -1603,6 +1603,7 @@ html[data-theme='dark'] .aeo-wave-bars {
     <button class="tab" onclick="switchTab('report',this)">📊 Report</button>
     <button class="tab" onclick="switchTab('reminders',this)">🔔 Reminders</button>
     <button class="tab" onclick="switchTab('seo',this)">🔍 AI SEO/GEO</button>
+    <button class="tab" onclick="switchTab('designer',this)">💻 Responsive Simulator</button>
   </div>
 
   <!-- CHECK-IN -->
@@ -1785,6 +1786,28 @@ html[data-theme='dark'] .aeo-wave-bars {
       <div class="rem-item"><span>🌙</span><span class="rem-lbl">Night attendance</span><span class="rem-time">9:00 PM</span></div>
       <button class="rem-btn" onclick="requestNotifs()">🔔 Enable browser reminders</button>
     </div>
+
+    <!-- Working Focus Timer (2 Hours Alarm) -->
+    <div class="card">
+      <div class="card-title">⏱️ Work Session focus timer</div>
+      <div class="focus-timer-container">
+        <div class="timer-display" id="focusTimerDisplay">02:00:00</div>
+        <div class="timer-progress-bar">
+          <div class="timer-progress-fill" id="focusTimerProgress"></div>
+        </div>
+        <div class="timer-presets">
+          <button class="timer-preset-btn active" onclick="setFocusDuration(120, this)">2 Hours Alarm</button>
+          <button class="timer-preset-btn" onclick="setFocusDuration(60, this)">1 Hour Focus</button>
+          <button class="timer-preset-btn" onclick="setFocusDuration(25, this)">25 Min Pomodoro</button>
+        </div>
+        <div class="timer-controls">
+          <button class="timer-control-btn play" id="focusStartBtn" onclick="toggleFocusTimer()">▶ Start Session</button>
+          <button class="timer-control-btn reset" onclick="resetFocusTimer()">🔄 Reset</button>
+        </div>
+        <div class="timer-status" id="focusTimerStatus">Alarm set for 2 hours focus session. Keep tab open.</div>
+      </div>
+    </div>
+
     <div class="card">
       <div class="card-title">Strict rules</div>
       <div style="font-size:13px;color:var(--text2);line-height:2">
@@ -2104,6 +2127,23 @@ html[data-theme='dark'] .aeo-wave-bars {
           <div class="indexnow-logs" id="indexNowLogs" style="margin-top:10px; height:80px; overflow-y:auto; border:.5px solid var(--border); border-radius:var(--r8);">
             [info] IndexNow logs console active. Ready for request submit...
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESPONSIVE SIMULATOR (DESIGNER VIEWPORTS) -->
+  <div class="section" id="tab-designer">
+    <div class="card">
+      <div class="card-title">💻 Responsive Device Simulator</div>
+      <div class="simulator-container">
+        <div class="simulator-toolbar">
+          <button class="sim-btn active" id="sim-btn-phone" onclick="setSimulatorDevice('phone', this)">📱 Phone View (375px)</button>
+          <button class="sim-btn" id="sim-btn-laptop" onclick="setSimulatorDevice('laptop', this)">💻 Laptop View (1024px)</button>
+          <button class="sim-btn" id="sim-btn-desktop" onclick="setSimulatorDevice('desktop', this)">🖥️ Desktop View (1280px)</button>
+        </div>
+        <div class="viewport-frame" id="simViewportFrame">
+          <iframe id="simulatorIframe" src="about:blank"></iframe>
         </div>
       </div>
     </div>
@@ -2637,6 +2677,12 @@ function switchTab(id,btn){
   document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');
   if(id==='report')renderReport();
   if(id==='seo')renderSEO();
+  if(id==='designer'){
+    const iframe = document.getElementById('simulatorIframe');
+    if(iframe.src === 'about:blank' || iframe.src === '') {
+      iframe.src = './index.html';
+    }
+  }
 }
 
 // Init today
@@ -4094,6 +4140,141 @@ function renderSEO() {
   updateGeoRadar();
   resetGEOSimulation();
 }
+
+
+// ----------------------------------------------------
+// RESPONSIVE SIMULATOR & WORK FOCUS TIMER (2HR ALARM)
+// ----------------------------------------------------
+if (window.self !== window.top) {
+  document.documentElement.classList.add('iframe-view');
+}
+
+let simCurrentDevice = 'phone';
+function setSimulatorDevice(device, btn) {
+  const frame = document.getElementById('simViewportFrame');
+  document.querySelectorAll('.sim-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  
+  frame.className = 'viewport-frame';
+  if (device !== 'phone') {
+    frame.classList.add(device);
+  }
+  simCurrentDevice = device;
+}
+
+let focusTimerInterval = null;
+let focusDurationMinutes = 120; // Default 2 hours
+let focusRemainingSeconds = 7200;
+let focusIsRunning = false;
+
+function updateFocusTimerDisplay() {
+  const h = Math.floor(focusRemainingSeconds / 3600);
+  const m = Math.floor((focusRemainingSeconds % 3600) / 60);
+  const s = focusRemainingSeconds % 60;
+  
+  const displayStr = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+  document.getElementById('focusTimerDisplay').textContent = displayStr;
+  
+  const totalSec = focusDurationMinutes * 60;
+  const pct = (focusRemainingSeconds / totalSec) * 100;
+  document.getElementById('focusTimerProgress').style.width = `${pct}%`;
+}
+
+function setFocusDuration(minutes, btn) {
+  if (focusIsRunning) {
+    toggleFocusTimer(); // Pause first
+  }
+  
+  document.querySelectorAll('.timer-preset-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  
+  focusDurationMinutes = minutes;
+  focusRemainingSeconds = minutes * 60;
+  updateFocusTimerDisplay();
+  
+  const status = document.getElementById('focusTimerStatus');
+  if (minutes === 120) {
+    status.textContent = "Alarm set for 2 hours focus session. Keep tab open.";
+  } else {
+    status.textContent = `Timer set for ${minutes} minutes focus session.`;
+  }
+}
+
+function playAlarmSound() {
+  try {
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    for (let i = 0; i < 4; i++) {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(880, audioCtx.currentTime + i * 0.4); // A5 note
+      
+      gain.gain.setValueAtTime(0.6, audioCtx.currentTime + i * 0.4);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + i * 0.4 + 0.25);
+      
+      osc.start(audioCtx.currentTime + i * 0.4);
+      osc.stop(audioCtx.currentTime + i * 0.4 + 0.25);
+    }
+  } catch (e) {
+    console.error("Web Audio API not allowed or blocked.", e);
+  }
+}
+
+function toggleFocusTimer() {
+  const btn = document.getElementById('focusStartBtn');
+  if (focusIsRunning) {
+    // Pause
+    clearInterval(focusTimerInterval);
+    focusIsRunning = false;
+    btn.textContent = "▶ Resume Session";
+    btn.className = "timer-control-btn play";
+  } else {
+    // Play
+    focusIsRunning = true;
+    btn.textContent = "⏸ Pause Session";
+    btn.className = "timer-control-btn pause";
+    
+    focusTimerInterval = setInterval(() => {
+      if (focusRemainingSeconds > 0) {
+        focusRemainingSeconds--;
+        updateFocusTimerDisplay();
+      } else {
+        // Timer Completed
+        clearInterval(focusTimerInterval);
+        focusIsRunning = false;
+        btn.textContent = "▶ Start Session";
+        btn.className = "timer-control-btn play";
+        
+        playAlarmSound();
+        if (Notification.permission === 'granted') {
+          new Notification('📢 focus session completed!', {
+            body: `Your ${focusDurationMinutes} minutes focus alarm has finished. Take a break!`
+          });
+        }
+        alert(`📢 focus session completed! ${focusDurationMinutes} minutes focus alarm finished.`);
+        resetFocusTimer();
+      }
+    }, 1000);
+  }
+}
+
+function resetFocusTimer() {
+  if (focusTimerInterval) {
+    clearInterval(focusTimerInterval);
+  }
+  focusIsRunning = false;
+  focusRemainingSeconds = focusDurationMinutes * 60;
+  
+  const btn = document.getElementById('focusStartBtn');
+  btn.textContent = "▶ Start Session";
+  btn.className = "timer-control-btn play";
+  
+  updateFocusTimerDisplay();
+}
+
 
 setNav();initToday();renderAll();nextQuote();initProfile();
 </script>
