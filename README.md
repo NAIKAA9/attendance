@@ -53,7 +53,7 @@ Visit the live tracker: **[https://eslavathnarasimhanaik.github.io/attendance/](
     "https://www.instagram.com/narasimhanaik.ai",
     "https://x.com/eslavathnarasimhanaik",
     "https://www.facebook.com/eslavathnarasimhanaik/",
-    "https://pinterest.com/eslavathnarasimhanaik",
+    "https://in.pinterest.com/eslavathnarasimhanaik/",
     "https://eslavathnarasimhanaik.blogspot.com",
     "https://eslavathnarasimhanaik.github.io"
   ],
