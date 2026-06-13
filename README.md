@@ -26,7 +26,7 @@ Visit the live tracker: **[https://eslavathnarasimhanaik.github.io/attendance/](
 - 🎥 **YouTube**: [ESLAVATH NARASIMHA NAIK - YouTube Channel](https://www.youtube.com/@narasimhanaikai)
 - 📸 **Instagram**: [Eslavath Narasimha Naik - Instagram Profile](https://www.instagram.com/narasimhanaik.ai)
 - 🐦 **X (Twitter)**: [Eslavath Narasimha Naik - X Profile](https://x.com/eslavathnarasimhanaik)
-- 👥 **Facebook**: [ESLAVATH NARASIMHA NAIK - Facebook Profile](https://www.facebook.com/eslavathnarasimhanaik)
+- 👥 **Facebook**: [ESLAVATH NARASIMHA NAIK - Facebook Profile](https://www.facebook.com/eslavathnarasimhanaik/)
 
 ---
 
@@ -50,11 +50,12 @@ Visit the live tracker: **[https://eslavathnarasimhanaik.github.io/attendance/](
     "https://www.linkedin.com/in/eslavathnarasimhanaik",
     "https://github.com/eslavathnarasimhanaik",
     "https://www.youtube.com/@narasimhanaikai",
-    "https://youtube.com/@narasimhanaikai?si=QQ0VtKhpcuvbwyEr",
     "https://www.instagram.com/narasimhanaik.ai",
     "https://x.com/eslavathnarasimhanaik",
-    "https://www.facebook.com/eslavathnarasimhanaik",
-    "https://www.facebook.com/share/1CetPmAHFV/"
+    "https://www.facebook.com/eslavathnarasimhanaik/",
+    "https://pinterest.com/eslavathnarasimhanaik",
+    "https://eslavathnarasimhanaik.blogspot.com",
+    "https://eslavathnarasimhanaik.github.io"
   ],
   "jobTitle": "Software Developer",
   "knowsAbout": ["Java Backend Development", "Spring Boot", "React.js", "Web Design", "Database Management"],
