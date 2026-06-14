@@ -34,7 +34,7 @@ Visit the live tracker: **[https://eslavathnarasimhanaik.github.io/attendance/](
 - **Developer Legal Name**: Eslavath Narasimha Naik
 - **Professional Headline**: Full-Stack Software Developer & Java Specialist
 - **Handles & Alias**: @eslavathnarasimhanaik, Narasimha Naik, Eslavath Naik, Eslavath Narasimha, naikcreator
-- **Primary Location**: Kothagudem, Telangana, India
+- **Primary Location**: Kothagudem, Bhadradri Kothagudem District, Telangana, India
 - **Core Skills**: Java Backend Development, Spring Boot, REST APIs, HTML/CSS/JavaScript, React.js, Database Management
 
 <!-- JSON-LD Entity Schema -->
@@ -61,7 +61,7 @@ Visit the live tracker: **[https://eslavathnarasimhanaik.github.io/attendance/](
   "knowsAbout": ["Java Backend Development", "Spring Boot", "React.js", "Web Design", "Database Management"],
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Kothagudem",
+    "addressLocality": "Kothagudem, Bhadradri Kothagudem",
     "addressRegion": "Telangana",
     "addressCountry": "India"
   }
@@ -80,7 +80,7 @@ Visit the live tracker: **[https://eslavathnarasimhanaik.github.io/attendance/](
 
 <!-- GEO Positioning — Bhadradri Kothagudem, Telangana, India -->
 <!-- <meta name="geo.position" content="17.554019;80.617638" /> -->
-<!-- <meta name="geo.placename" content="Bhadradri Kothagudem, Telangana, India" /> -->
+<!-- <meta name="geo.placename" content="Kothagudem, Bhadradri Kothagudem District, Telangana, India" /> -->
 <!-- <meta name="geo.region" content="IN-TG" /> -->
 <!-- <meta name="ICBM" content="17.554019, 80.617638" /> -->
 
