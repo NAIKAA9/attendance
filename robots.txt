@@ -1,4 +1,62 @@
+# ===========================================
+# robots.txt — Optimized for maximum crawling
+# ===========================================
+
+# Default rule: allow everything
 User-agent: *
 Allow: /
+Crawl-delay: 0
 
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# Yahoo / Slurp
+User-agent: Slurp
+Allow: /
+Crawl-delay: 0
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 0
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 0
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 0
+
+# Facebook
+User-agent: facebookexternalhit
+Allow: /
+
+# Twitter
+User-agent: Twitterbot
+Allow: /
+
+# LinkedIn
+User-agent: LinkedInBot
+Allow: /
+
+# Sitemap location
 Sitemap: https://eslavathnarasimhanaik.github.io/attendance/sitemap.xml
