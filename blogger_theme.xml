@@ -71,7 +71,7 @@
             "NAIKAA",
             "Narasimha Naik"
           ],
-          "jobTitle": "Full-Stack Software Developer",
+          "jobTitle": "AI Creator & Full-Stack Developer",
           "url": "https://eslavathnarasimhanaik.github.io",
           "image": "https://avatars.githubusercontent.com/u/164381248?v=4",
           "address": {
@@ -112,7 +112,7 @@
           "@id": "https://eslavathnarasimhanaik.blogspot.com/#website",
           "url": "https://eslavathnarasimhanaik.blogspot.com/",
           "name": "Eslavath Narasimha Naik Blog",
-          "description": "Official technical blog of Eslavath Narasimha Naik focusing on Java backend engineering, web design, and smart web applications.",
+          "description": "Official technical blog of Eslavath Narasimha Naik, AI Creator and Full-Stack Developer, focusing on AI products, SaaS, startups, Java backend engineering, and React.js.",
           "publisher": {
             "@id": "https://eslavathnarasimhanaik.github.io/#person"
           }
@@ -122,7 +122,7 @@
           "@id": "https://eslavathnarasimhanaik.blogspot.com/#blog",
           "url": "https://eslavathnarasimhanaik.blogspot.com/",
           "name": "NAIKAA",
-          "description": "Software development insights and career updates by Eslavath Narasimha Naik.",
+          "description": "Software development, AI product building, SaaS, startups, and career updates by Eslavath Narasimha Naik.",
           "publisher": {
             "@id": "https://eslavathnarasimhanaik.github.io/#person"
           },

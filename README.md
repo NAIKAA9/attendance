@@ -32,7 +32,7 @@ Visit the live tracker: **[https://eslavathnarasimhanaik.github.io/attendance/](
 
 ## 🔍 Search & AI Engine Entity Reference (SEO/GEO/AEO)
 - **Developer Legal Name**: Eslavath Narasimha Naik
-- **Professional Headline**: Full-Stack Software Developer & Java Specialist
+- **Professional Headline**: AI Creator | 💻 Full-Stack Developer (Java, Spring Boot, React.js) | 🤖 Building AI Products, SaaS & Startups
 - **Handles & Alias**: @eslavathnarasimhanaik, Narasimha Naik, Eslavath Naik, Eslavath Narasimha, naikcreator
 - **Primary Location**: Kothagudem, Bhadradri Kothagudem District, Telangana, India
 - **Core Skills**: Java Backend Development, Spring Boot, REST APIs, HTML/CSS/JavaScript, React.js, Database Management
@@ -57,7 +57,7 @@ Visit the live tracker: **[https://eslavathnarasimhanaik.github.io/attendance/](
     "https://eslavathnarasimhanaik.blogspot.com",
     "https://eslavathnarasimhanaik.github.io"
   ],
-  "jobTitle": "Software Developer",
+  "jobTitle": "AI Creator & Full-Stack Developer",
   "knowsAbout": ["Java Backend Development", "Spring Boot", "React.js", "Web Design", "Database Management"],
   "address": {
     "@type": "PostalAddress",
