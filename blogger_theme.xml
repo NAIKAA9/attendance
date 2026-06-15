@@ -175,7 +175,11 @@
             <b:widget-setting name='displayWidth'>0</b:widget-setting>
           </b:widget-settings>
           <b:includable id='main'>
-            <h1><data:title/></h1>
+            <h1>
+              <b:tag cond='data:view.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl' name='a'>
+                Eslavath Narasimha Naik
+              </b:tag>
+            </h1>
             <p><data:description/></p>
           </b:includable>
           <b:includable id='behindImageStyle'>
@@ -203,7 +207,7 @@
           <b:includable id='title'>
     <h1>
       <b:tag cond='data:view.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl' name='a'>
-        <data:title/>
+        Eslavath Narasimha Naik
       </b:tag>
     </h1>
   </b:includable>
