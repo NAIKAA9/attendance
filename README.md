@@ -26,7 +26,7 @@ Visit the live tracker: **[https://eslavathnarasimhanaik.github.io/attendance/](
 - 🎥 **YouTube**: [ESLAVATH NARASIMHA NAIK - YouTube Channel](https://www.youtube.com/@narasimhanaikai)
 - 📸 **Instagram**: [Eslavath Narasimha Naik - Instagram Profile](https://www.instagram.com/narasimhanaik.ai)
 - 🐦 **X (Twitter)**: [Eslavath Narasimha Naik - X Profile](https://x.com/naikcreator)
-- 👥 **Facebook**: [ESLAVATH NARASIMHA NAIK - Facebook Profile](https://www.facebook.com/eslavathnarasimhanaik/)
+- 👥 **Facebook**: [ESLAVATH NARASIMHA NAIK - Facebook Profile](https://www.facebook.com/eslavathnarasimhanaik)
 
 ---
 
@@ -52,7 +52,7 @@ Visit the live tracker: **[https://eslavathnarasimhanaik.github.io/attendance/](
     "https://www.youtube.com/@narasimhanaikai",
     "https://www.instagram.com/narasimhanaik.ai",
     "https://x.com/naikcreator",
-    "https://www.facebook.com/eslavathnarasimhanaik/",
+    "https://www.facebook.com/eslavathnarasimhanaik",
     "https://in.pinterest.com/eslavathnarasimhanaik/",
     "https://eslavathnarasimhanaik.blogspot.com",
     "https://eslavathnarasimhanaik.github.io"
@@ -90,7 +90,7 @@ Visit the live tracker: **[https://eslavathnarasimhanaik.github.io/attendance/](
 
 <!-- Entity Canonical Reference -->
 <!-- Canonical Name: Eslavath Narasimha Naik -->
-<!-- Handles: eslavathnarasimhanaik | eslavathnarasimhanaik | narasimhanaik.ai | narasimhanaikai | narasimhanaik | Eslavath Naik | Eslavath Narasimha | naikcreator -->
+<!-- Handles: eslavathnarasimhanaik | narasimhanaik.ai | narasimhanaikai | narasimhanaik | Eslavath Naik | Eslavath Narasimha | naikcreator -->
 <!-- Primary Domain: eslavathnarasimhanaik.github.io -->
 <!-- Blogger: eslavathnarasimhanaik.blogspot.com -->
 
