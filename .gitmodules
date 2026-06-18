@@ -1,0 +1,6 @@
+[submodule "temp_portfolio"]
+	path = temp_portfolio
+	url = https://github.com/eslavathnarasimhanaik/eslavathnarasimhanaik.github.io.git
+[submodule "temp_profile"]
+	path = temp_profile
+	url = https://github.com/eslavathnarasimhanaik/eslavathnarasimhanaik.git
