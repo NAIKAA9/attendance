@@ -77,6 +77,8 @@ Visit the live tracker: **[https://eslavathnarasimhanaik.github.io/attendance/](
 <!-- GSC Key 1: <meta name="google-site-verification" content="FW7rcxi_mwc3X5nxhlJqMHrgi2c0XjySaZqLthbYjjE" /> -->
 <!-- GSC Key 2: <meta name="google-site-verification" content="ad5xSF75uh-eU1Bq95IE2SqvErlO_qvwZWoad6x56-o" /> -->
 <!-- GSC Key 3: <meta name="google-site-verification" content="wLUzJlltphNNuI_lnhYceFv1vQJ68mCj_PU7YclaPVI" /> -->
+<!-- GSC Key 4: <meta name="google-site-verification" content="3cb704af3aaa1b8c" /> -->
+<!-- GSC Key 5: <meta name="google-site-verification" content="_kyPyKQs4pqWeM75UGvxsa8bdyLcgDqfZ9kEFa0mzaU" /> -->
 
 <!-- GEO Positioning — Bhadradri Kothagudem, Telangana, India -->
 <!-- <meta name="geo.position" content="17.554019;80.617638" /> -->
